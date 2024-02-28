@@ -1,0 +1,56 @@
+.profile{
+    margin-top: 100px;
+}
+.btn_custom_profile{
+    display: flex;
+    justify-content: center;
+    margin:20px 0;
+    margin-bottom: 30px;
+    & > div{
+        border:2px solid rgba(0,0,0,0.4);
+        width: 420px;
+        display: flex;
+        border-radius: 10px;
+        overflow: hidden;
+        & > div{
+            width: 100%;
+            height: 100%;
+            padding:10px 5px;
+            border-right: 2px solid rgba(0,0,0,0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 600;
+            &:hover{
+                background-color:#93E2BB;
+                color:white;
+            }
+            &.active{
+                background-color:#93E2BB;
+                color:white;
+            }
+        }
+        & > div:last-child{
+            border-right: none;
+        }
+    }
+}
+.custom_input_profile{
+    outline: none;
+    padding:3px 10px;
+    width: 100%;
+    font-size: 14px;
+}
+.profile button:hover {
+    -webkit-animation-name: hvr-wobble-horizontal;
+    animation-name: hvr-wobble-horizontal;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
+    -webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+}

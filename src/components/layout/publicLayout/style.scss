@@ -1,0 +1,27 @@
+.header_user {
+    position: absolute;
+    top: 120%;
+    right: -10px;
+    min-width: 160px;
+    min-height: 80px;
+    background-color: white;
+    border-radius: 20px;
+}
+
+.header_user_n {
+    width: 100%;
+    min-height: 40px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    & > p {
+        margin:0;
+        display: -webkit-box;
+        white-space: nowrap;
+    }
+}
+.header_user_n:last-child{
+    border-bottom:none;
+}

@@ -96,7 +96,7 @@ const Searching = () => {
                 <input
                   id="search"
                   type="text"
-                  placeholder="Type Keywords"
+                  placeholder="Tour Name"
                   value={name}
                   onChange={handleNameChange}
                 />
@@ -117,7 +117,7 @@ const Searching = () => {
               </div>
             </div>
             <div className="advance-search">
-              <span className="desc">ADVANCED SEARCH</span>
+              <span className="desc">TOUR SEARCH</span>
               <div className="row">
                 <div
                   style={{ marginBottom: "20px" }}
@@ -127,7 +127,7 @@ const Searching = () => {
                     className="input-group-text"
                     id="inputGroup-sizing-default"
                   >
-                    Type
+                    Address
                   </span>
                   <input
                     type="text"
@@ -194,6 +194,10 @@ const Searching = () => {
                     <RecipeCard
                       name={recipe.name}
                       image={recipe.tags.find((tag) => tag.k === "image").v}
+                      // image={
+                      //   img?.v ||
+                      //   "https://res.cloudinary.com/dpsxlp0rr/image/upload/v1709474464/shutterstock-706797802-4278-1588047075_sn4aos.jpg"
+                      // }
                       owner={recipe.owner}
                       item={recipe}
                     />

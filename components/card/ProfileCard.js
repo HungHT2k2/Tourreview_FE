@@ -41,14 +41,14 @@ const ProfileCard = ({ image, item, reload }) => {
                       <h5 class="mb-1">{item?.name}</h5>
                     </Link>
                     <p class="mb-2 pb-1" style={{ color: "#2b2a2a" }}>
-                      Chief
+                      Review
                     </p>
                     <div
                       class="d-flex justify-content-start rounded-3 p-2 mb-2"
                       style={{ backgroundColor: "#efefef" }}
                     >
                       <div>
-                        <p class="small text-muted mb-1">Recipes</p>
+                        <p class="small text-muted mb-1">Vlog</p>
                         <p class="mb-0">{item?.recipe_size}</p>
                       </div>
                       <div class="px-3">

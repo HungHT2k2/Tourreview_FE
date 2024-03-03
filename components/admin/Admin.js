@@ -75,7 +75,7 @@ const Admin = () => {
             <div className="navbar-nav align-items-center ms-auto">
               <div className="nav-item dropdown">
                 <div style={{ cursor: "pointer" }} className="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                  <img className="rounded-circle me-lg-2" src="https://res.cloudinary.com/sttruyen/image/upload/v1694770081/another/kgxpacycwxq7aqeww2e8.gif" alt="" style={{ width: "40px", height: "40px" }} />
+                  <img className="rounded-circle me-lg-2" src="https://res.cloudinary.com/dpsxlp0rr/image/upload/v1709473241/Rectangle_20_sq1889.png" alt="" style={{ width: "40px", height: "40px" }} />
                   <span className="d-none d-lg-inline-flex">{user?.name}</span>
                 </div>
                 <div className="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">

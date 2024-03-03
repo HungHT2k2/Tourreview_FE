@@ -37,7 +37,7 @@ const Header = () => {
         <div className="top-bar row gx-0 align-items-center d-none d-lg-flex">
           <div className="col-lg-6 px-5 text-start">
             <small><i className="fa fa-map-marker-alt me-2"></i>FPT University, Hòa Lạc, HN, VN</small>
-            <small className="ms-4"><i className="fa fa-envelope me-2"></i>cookingtogether@cooking.com</small>
+            {/* <small className="ms-4"><i className="fa fa-envelope me-2"></i>cookingtogether@cooking.com</small> */}
           </div>
           <div className="col-lg-6 px-5 text-end">
             <small>Follow us:</small>
@@ -49,7 +49,9 @@ const Header = () => {
         </div>
         <nav className="navbar navbar-expand-lg navbar-light py-lg-0 px-lg-5 wow fadeIn" data-wow-delay="0.1s">
           <Link to="/" className="navbar-brand ms-4 ms-lg-0">
-            <h1 className="fw-bold text-primary m-0">C<span className="text-secondary">oo</span>ky</h1>
+            {/* <h1 className="fw-bold text-primary m-0">C<span className="text-secondary">oo</span>ky</h1> */}
+                        <h1 className="fw-bold text-primary m-0">Tour<span className="text-secondary">Review</span></h1> 
+
           </Link>
           <button type="button" className="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span className="navbar-toggler-icon"></span>

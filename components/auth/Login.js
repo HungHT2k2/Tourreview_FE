@@ -73,7 +73,7 @@ const Login = () => {
         <div className="container-login100">
           <div className="wrap-login100">
             <div className="login100-pic js-tilt">
-              <img src="https://res.cloudinary.com/sttruyen/image/upload/v1694770081/another/kgxpacycwxq7aqeww2e8.gif" alt="IMG" />
+              <img src="https://res.cloudinary.com/dpsxlp0rr/image/upload/v1709473241/Rectangle_20_sq1889.png" alt="IMG" />
             </div>
             <div className="login100-form validate-form">
               <span style={{ fontWeight: "600", fontSize: "35px" }} className="login100-form-title">

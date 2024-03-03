@@ -6,7 +6,7 @@ const ChefCard = () => {
         <div class="product-item">
             <div class="position-relative bg-light overflow-hidden">
                 <Link to='/recipe/id'>
-                    <img style={{ height: "350px", objectFit: "cover" }} class="img-fluid w-100" src="https://res.cloudinary.com/sttruyen/image/upload/v1694421667/sggxexjxdyhpygdopgxe.jpg" alt="" />
+                    <img style={{ height: "350px", objectFit: "cover" }} class="img-fluid w-100" src="https://res.cloudinary.com/dpsxlp0rr/image/upload/v1709474904/Ellipse_5_sepnmo.png" alt="" />
                 </Link>
                 <div class="bg-secondary rounded text-white position-absolute start-0 top-0 m-2 py-1 px-3">Đầu bếp hot</div>
             </div>

@@ -106,7 +106,7 @@ const Profile = () => {
                 formData.append("upload_preset", "sttruyenxyz");
                 try {
                     const res = await axios.post(
-                        "https://api.cloudinary.com/v1_1/sttruyen/image/upload",
+                        "https://res.cloudinary.com/dpsxlp0rr/image/upload/v1709474904/Ellipse_5_sepnmo.png",
                         formData
                     );
                     urlImage = "https:" + res.data.url.split(":")[1];
@@ -266,7 +266,7 @@ const Profile = () => {
                                             }} style={{ backgroundColor: "#93E2BB", border: "none" }} type="button" className="btn btn-primary">Sửa thông tin</button>
                                             <button onClick={() => {
                                                 navigate('/recipe/create');
-                                            }} style={{ border: "none", marginLeft: "10px" }} type="button" className="btn btn-secondary">Thêm công thức</button>
+                                            }} style={{ border: "none", marginLeft: "10px" }} type="button" className="btn btn-secondary">Thêm bài viết</button>
                                         </div> :
                                         <div className="d-flex justify-content-center mb-2">
                                             <button onClick={() => {
@@ -339,17 +339,17 @@ const Profile = () => {
                                         <div onClick={() => {
                                             setType("");
                                         }} className={type === '' ? 'active' : ''}>
-                                            <i>Công thức của mình</i>
+                                            <i>Bài viết của mình</i>
                                         </div>
                                         <div className={type === 'love' ? 'active' : ''} onClick={() => {
                                             setType("love");
                                         }}>
-                                            <i>Công thức yêu thích</i>
+                                            <i>Bài viết yêu thích</i>
                                         </div>
                                         <div className={type === 'follow' ? 'active' : ''} onClick={() => {
                                             setType("follow");
                                         }}>
-                                            <i>Đang theo dõi</i>
+                                            <i>Đang follow</i>
                                         </div>
                                     </div>
                                 </div>
@@ -382,17 +382,17 @@ const Profile = () => {
                                                                     <div style={{ height: "150px" }} className="card-body p-4">
                                                                         <div className="d-flex text-black">
                                                                             <div className="flex-shrink-0">
-                                                                                <img src={item?.tags?.image ? item?.tags?.image : "https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp"}
+                                                                                <img src={item?.tags?.image ? item?.tags?.image : "https://res.cloudinary.com/dpsxlp0rr/image/upload/v1709478567/avatar-vo-danh-10_r2llp0.png"}
                                                                                     alt="Generic placeholder image" className="img-fluid"
                                                                                     style={{ width: "100px", height: "80px", objectFit: "cover" }} />
                                                                             </div>
                                                                             <div className="flex-grow-1 ms-3">
                                                                                 <h5 className="mb-1">{item?.name}</h5>
-                                                                                <p className="mb-2 pb-1" style={{ color: "#2b2a2a" }}>{item?.ownerRecipes?.length > 0 ? "Chief" : "User"}</p>
+                                                                                <p className="mb-2 pb-1" style={{ color: "#2b2a2a" }}>{item?.ownerRecipes?.length > 0 ? "Reviewer" : "User"}</p>
                                                                                 <div className="d-flex justify-content-start rounded-3 p-2 mb-2"
                                                                                     style={{ backgroundColor: "#efefef" }}>
                                                                                     <div>
-                                                                                        <p className="small text-muted mb-1">Recipes</p>
+                                                                                        <p className="small text-muted mb-1">Vlog</p>
                                                                                         <p className="mb-0">{item?.ownerRecipes?.length}</p>
                                                                                     </div>
                                                                                     <div className="px-3">
@@ -401,7 +401,7 @@ const Profile = () => {
                                                                                     </div>
                                                                                 </div>
                                                                                 <div className="d-flex pt-1">
-                                                                                    <button onClick={() => handleUnFollow(item?._id)} type="button" className="btn btn-primary flex-grow-1">Bỏ theo dõi</button>
+                                                                                    <button onClick={() => handleUnFollow(item?._id)} type="button" className="btn btn-primary flex-grow-1">Unfollow</button>
                                                                                 </div>
                                                                             </div>
                                                                         </div>

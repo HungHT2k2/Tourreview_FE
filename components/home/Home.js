@@ -53,30 +53,32 @@ const Home = () => {
         <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <img class="w-100" src="https://res.cloudinary.com/sttruyen/image/upload/v1694747978/pmp5hojav9c8osggx3hn.jpg" alt="Image" />
+              <img class="w-100" src="https://res.cloudinary.com/dpsxlp0rr/image/upload/v1709474045/f6c95ff1eb6b404e1a9539b0f570a1bb_hxpb6z.jpg" alt="Image" />
               <div class="carousel-caption">
                 <div class="container">
                   <div class="row justify-content-start">
                     <div style={{ color: "black" }} class="col-lg-7">
-                      <h1 class="display-2 mb-5 animated slideInDown">Cùng nhau tạo nên những món ăn ngon</h1>
+                      <h1 class="display-2 mb-5 animated slideInDown">Từ Đông Nam Á Đến Thế Giới, Trong Tầm Tay Bạn</h1>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
             <div class="carousel-item">
-              <img class="w-100" src="https://res.cloudinary.com/sttruyen/image/upload/v1694748169/gwrobojgvpbfyejhb40j.jpg" alt="Image" />
+              <img class="w-100" src="https://res.cloudinary.com/dpsxlp0rr/image/upload/v1709474045/f6c95ff1eb6b404e1a9539b0f570a1bb_hxpb6z.jpg" alt="Image" />
               <div class="carousel-caption">
                 <div class="container">
                   <div style={{ color: "black" }} class="row justify-content-start">
                     <div class="col-lg-7">
-                      <h1 class="display-2 mb-5 animated slideInDown">Khám phá mọi miền ẩm thực của thế giới</h1>
+                      <h1 class="display-2 mb-5 animated slideInDown">Từ Đông Nam Á Đến Thế Giới, Trong Tầm Tay Bạn</h1>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+
+          
           <button class="carousel-control-prev" type="button" data-bs-target="#header-carousel"
             data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -94,8 +96,8 @@ const Home = () => {
         <div class="container">
           <div class="row g-0 gx-5 align-items-end">
             <div class="section-header text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style={{ maxWidth: "500px" }}>
-              <h1 style={{ fontWeight: "700" }} class="display-5 mb-3">Nổi bật</h1>
-              <p>Những món ăn nổi bật được nhiều người yêu thích nhất.</p>
+              <h1 style={{ fontWeight: "700" }} class="display-5 mb-3">HOT TOUR VIEW</h1>
+              <p>Những địa điểm du lịch nổi bật được nhiều người yêu thích nhất.</p>
             </div>
           </div>
           <div class="tab-content">
@@ -113,7 +115,7 @@ const Home = () => {
                         item={item}
                         image={
                           img?.v ||
-                          "https://cdnimg.vietnamplus.vn/t620/uploaded/ngtnnn/2022_07_27/2707banhxeo.jpg"
+                          "https://res.cloudinary.com/dpsxlp0rr/image/upload/v1709474464/shutterstock-706797802-4278-1588047075_sn4aos.jpg"
                         }
                         reload={getRecipeFavorite}
                       />
@@ -134,8 +136,8 @@ const Home = () => {
         <div class="container">
           <div class="row g-0 gx-5 align-items-end">
             <div class="section-header text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style={{ maxWidth: "500px" }}>
-              <h1 style={{ fontWeight: "700" }} class="display-5 mb-3">Món mới</h1>
-              <p>Những món ăn mới được đưa lên bởi các đầu bếp được yêu thích nhất.</p>
+              <h1 style={{ fontWeight: "700" }} class="display-5 mb-3">NEW TOUR VIEW</h1>
+              <p>Những địa điểm du lịch mới được khám phá.</p>
             </div>
           </div>
           <div class="tab-content">
@@ -152,7 +154,7 @@ const Home = () => {
                         item={item}
                         image={
                           img?.v ||
-                          "https://cdnimg.vietnamplus.vn/t620/uploaded/ngtnnn/2022_07_27/2707banhxeo.jpg"
+                          "https://res.cloudinary.com/dpsxlp0rr/image/upload/v1709474464/shutterstock-706797802-4278-1588047075_sn4aos.jpg"
                         }
                         reload={getRecipeNew}
                       />
@@ -172,8 +174,8 @@ const Home = () => {
       <div class="container-fluid bg-light bg-icon py-6 mb-5">
         <div class="container">
           <div class="section-header text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style={{ maxWidth: "500px" }}>
-            <h1 style={{ fontWeight: "700" }} class="display-5 mb-3">Đầu bếp ưa thích</h1>
-            <p>Những đầu bếp có số lượng theo dõi lớn nhất với cũng cống hiến vô cùng lớn của họ.</p>
+            <h1 style={{ fontWeight: "700" }} class="display-5 mb-3">REVIEWER NỔI BẬT</h1>
+            <p>Những REVIEWER có số lượng theo dõi lớn nhất với cũng cống hiến vô cùng lớn.</p>
           </div>
           <Swiper
             modules={[Navigation, Pagination, Autoplay]}
@@ -200,7 +202,7 @@ const Home = () => {
                     reload={getTopChief}
                     image={
                       item.tags.find((el) => el.k === "image")?.v ||
-                      "https://www.cet.edu.vn/wp-content/uploads/2018/04/nghe-dau-bep-cet.jpg"
+                      "https://res.cloudinary.com/dpsxlp0rr/image/upload/v1709474904/Ellipse_5_sepnmo.png"
                     }
                   />
                 </SwiperSlide>

@@ -267,7 +267,7 @@ const Recipe = () => {
               <img
                 src={
                   recipe?.tags?.image ||
-                  "https://res.cloudinary.com/sttruyen/image/upload/v1694421665/pjcicfq1kncbstai4wbc.jpg"
+                  "https://res.cloudinary.com/dpsxlp0rr/image/upload/v1709474464/shutterstock-706797802-4278-1588047075_sn4aos.jpg"
                 }
               />
               <div className="recipe-introduction">
@@ -280,59 +280,6 @@ const Recipe = () => {
                 <div className="rating d-flex justify-content-center w-100 flex-row-reverse">
                   {renderStars()}
                 </div>
-              </div>
-              <div className="recipe-owner">
-                <div className="recipe-owner-image">
-                  <img
-                    src={
-                      recipe?.owner?.tags?.image
-                        ? recipe?.owner?.tags?.image
-                        : "https://res.cloudinary.com/sttruyen/image/upload/v1694421664/twfa0a0rxzx2lwtkeryt.jpg"
-                    }
-                  />
-                  <div className="recipe-owner-qr-img">
-                    <img
-                      src={
-                        recipe?.owner?.tags?.qr ||
-                        "https://res.cloudinary.com/sttruyen/image/upload/v1695020641/another/sotraosven0w6fdm4mr9.png"
-                      }
-                    />
-                  </div>
-                  <div className="recipe-owner-attackment">
-                    <i className="fa-solid fa-paperclip"></i>
-                  </div>
-                </div>
-                <div className="recipe-owner-name">
-                  <p>{recipe?.owner?.name}</p>
-                </div>
-                {user?._id == recipe?.owner?._id ? (
-                  <div className="recipe-owner-btn">
-                    <button
-                      onClick={() => {
-                        natigate(`/${user?._id}/profile`);
-                      }}
-                      className="btn btn-primary"
-                    >
-                      Profile
-                    </button>
-                  </div>
-                ) : (
-                  <div className="recipe-owner-btn">
-                    <button
-                    style={{width:"100px"}}
-                      onClick={() => {
-                       if(localStorage.getItem("token")){
-                        natigate(`/${recipe?.owner?._id}/profile`);
-                       }else{
-                        natigate(`/login`);
-                       }
-                      }}
-                      className="btn btn-primary"
-                    >
-                      {localStorage.getItem("token") ? "Theo dõi" : "Đăng nhập"}
-                    </button>
-                  </div>
-                )}
               </div>
             </div>
           </div>

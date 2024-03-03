@@ -132,7 +132,7 @@ const CreateRecipe = () => {
                 formData.append("upload_preset", "sttruyenxyz");
                 try {
                     const res = await axios.post(
-                        "https://api.cloudinary.com/v1_1/sttruyen/image/upload",
+                        "https://res.cloudinary.com/dpsxlp0rr/image/upload/v1709474464/shutterstock-706797802-4278-1588047075_sn4aos.jpg",
                         formData
                     );
                     urlImage = "https:" + res.data.url.split(":")[1];

@@ -11,7 +11,7 @@
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    background: url("https://res.cloudinary.com/sttruyen/image/upload/v1694855426/bsaoyb190aabhri2rrot.jpg") no-repeat;
+  
     background-size: cover;
 }
 
@@ -49,7 +49,7 @@
     font-family: "ElMessiri-SemiBold";
     text-align: center;
     margin-bottom: 27px;
-    color: #ff9a9c;
+    color: #06b5f5;
 }
 
 .form-holder {
@@ -65,7 +65,7 @@
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    border: 2px solid #ff9a9c;
+    border: 2px solid #ede9e9;
     position: absolute;
     left: 1px;
     top: 50%;
@@ -74,7 +74,7 @@
 
 .form-holder.active:before {
     border: 2px solid transparent;
-    background: #ff9a9c;
+    background: #ebebeb;
 }
 
 .form-control {
@@ -194,7 +194,7 @@
     align-items: center;
     justify-content: center;
     padding: 0;
-    background: #ff9a9c;
+    background: #5aa8f5;
     font-size: 15px;
     color: #fff;
     text-transform: uppercase;

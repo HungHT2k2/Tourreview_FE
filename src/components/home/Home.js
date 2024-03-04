@@ -96,7 +96,7 @@ const Home = () => {
         <div class="container">
           <div class="row g-0 gx-5 align-items-end">
             <div class="section-header text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style={{ maxWidth: "500px" }}>
-              <h1 style={{ fontWeight: "700" }} class="display-5 mb-3">HOT TOUR VIEW</h1>
+              <h1 style={{ fontWeight: "700" }} class="display-6 mb-2">TOUR DU LỊCH NỔI BẬT</h1>
               <p>Những địa điểm du lịch nổi bật được nhiều người yêu thích nhất.</p>
             </div>
           </div>
@@ -136,7 +136,7 @@ const Home = () => {
         <div class="container">
           <div class="row g-0 gx-5 align-items-end">
             <div class="section-header text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style={{ maxWidth: "500px" }}>
-              <h1 style={{ fontWeight: "700" }} class="display-5 mb-3">NEW TOUR VIEW</h1>
+              <h1 style={{ fontWeight: "700" }} class="display-5 mb-3">TOUR DU LỊCH MỚI</h1>
               <p>Những địa điểm du lịch mới được khám phá.</p>
             </div>
           </div>

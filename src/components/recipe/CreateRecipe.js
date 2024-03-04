@@ -178,7 +178,6 @@ const CreateRecipe = () => {
 
     }
 
-
     const [colourOptions, setColourOptions] = useState([
         { value: 'red', label: 'Red' },
         { value: 'blue', label: 'Blue' },
@@ -192,7 +191,7 @@ const CreateRecipe = () => {
                     <div class="image-holder">
                         <div style={{
                             width: '400px',
-                            height: "500px", border: "1px solid rgba(0,0,0,0.1)"
+                            height: "400px", border: "1px solid rgba(0,0,0,0.1)"
                         }} className='d-flex justify-content-center align-items-center' {...getRootProps()}>
                             <input {...getInputProps()} />
                             {
@@ -211,16 +210,16 @@ const CreateRecipe = () => {
                         </div>
                     </div>
                     <div style={{ width: "400px" }} className='create_form' action="">
-                        <h3 style={{ marginBottom: "30px" }}>Tạo công thức</h3>
+                        <h3 style={{ marginBottom: "30px" }}>Thêm Bài Viết</h3>
                         <div class="form-holder active w-100">
-                            <textarea style={{ width: "100%", minHeight: "100px" }} type="text" placeholder="Tên món ăn" class={`form-control ${!isRecipeNameValid ? 'invalid' : ''}`} onChange={e => { setRecipe_name(e.target.value); setIsRecipeNameValid(true) }} />
+                            <textarea style={{ width: "100%", minHeight: "100px" }} type="text" placeholder="Tên địa điểm du lịch" class={`form-control ${!isRecipeNameValid ? 'invalid' : ''}`} onChange={e => { setRecipe_name(e.target.value); setIsRecipeNameValid(true) }} />
                         </div>
                         <div class="form-holder active">
-                            <textarea style={{ width: "100%", minHeight: "200px" }} type="text" placeholder="Giới thiệu món ăn" class="form-control" onChange={e => setRecipe_introduction(e.target.value)} />
+                            <textarea style={{ width: "100%", minHeight: "200px" }} type="text" placeholder="Chọn địa điểm" class="form-control" onChange={e => setRecipe_introduction(e.target.value)} />
                         </div>
                     </div>
                 </div>
-                <div className='create_form-2'>
+                {/* <div className='create_form-2'>
                     <div style={{ margin: "10px 0" }} class="form-holder active w-100">
                         <CreatableSelect onChange={(newValue) => setValue(newValue)}
                             isClearable
@@ -231,9 +230,9 @@ const CreateRecipe = () => {
                             placeholder="Chọn quốc gia"
                         />
                     </div>
-                </div>
+                </div> */}
                 <div className='recipe_create'>
-                    <h3 style={{ marginTop: "20px" }}>Công thức</h3>
+                    <h3 style={{ marginTop: "20px" }}>Giới thiệu về địa điểm du lịch</h3>
                     <div className={`recipe_create_edit ${!isRecipe ? 'invalid  ' : ''}`}>
                         <Editor
                             editorState={editorState}

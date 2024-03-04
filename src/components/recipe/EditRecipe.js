@@ -191,7 +191,7 @@ const EditRecipe = () => {
                         </div>
                     </div>
                     <div style={{ width: "400px" }} className='create_form' action="">
-                        <h3 style={{ marginBottom: "30px" }}>Tạo công thức</h3>
+                        <h3 style={{ marginBottom: "30px" }}>Thêm bài viết</h3>
                         <div class="form-holder active w-100">
                             <textarea style={{ width: "100%", minHeight: "100px" }} type="text" class={`form-control `} defaultValue={dataRecipe?.name} onChange={e => { setRecipe_name(e.target.value); }} />
                         </div>

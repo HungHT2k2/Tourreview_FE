@@ -24,8 +24,10 @@ const ProfileCard = ({ image, item, reload }) => {
                       alt="Generic placeholder image"
                       class="img-fluid"
                       style={{
-                        width: "100px",
-                        height: "80px",
+                        width: "80px",
+                        height: "110px",
+                        padding: "10px",
+                        margin: "-5px",
                         objectFit: "cover",
                       }}
                     />
@@ -41,7 +43,7 @@ const ProfileCard = ({ image, item, reload }) => {
                       <h5 class="mb-1">{item?.name}</h5>
                     </Link>
                     <p class="mb-2 pb-1" style={{ color: "#2b2a2a" }}>
-                      Review
+                      Reviewer
                     </p>
                     <div
                       class="d-flex justify-content-start rounded-3 p-2 mb-2"

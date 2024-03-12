@@ -180,7 +180,7 @@ const Home = () => {
           <Swiper
             modules={[Navigation, Pagination, Autoplay]}
             spaceBetween={10}
-            slidesPerView={3}
+            slidesPerView={4}
             navigation
             pagination={{ clickable: true }}
             scrollbar={{ draggable: true }}

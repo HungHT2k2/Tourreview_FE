@@ -8,9 +8,49 @@ const RecipeAdminCard = ({item,index,setReload}) => {
     const [tags,setTags] = useState({});
     const [ownerTags,userOwnerTags] = useState({});
 
+    useEffect(() => {
+        if(item){
+            let tempTags = {}
+            item?.tags?.forEach(infor => {
+                tempTags = {
+                    ...tempTags,
+                    [infor.k]:infor.v
+                }
+            })
+            setTags(tempTags);
 
+            let tempownerTags = {}
+            item?.owner?.tags?.forEach(infor => {
+                tempownerTags = {
+                    ...tempownerTags,
+                    [infor.k]:infor.v
+                }
+            })
+            userOwnerTags(tempownerTags);
+        }
+    },[item]);
 
+    const handleChangeStatus = async () => {
+        try{
+            await axios.post(`/admin/recipe/${item?._id}`,{
+            },{
+                headers:{
+                    Authorization:`Bearer ${localStorage.getItem('token')}`
+                }
+            })
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: "Change status successfully!",
+                showConfirmButton: false,
+                timer: 1500
+            })
+            setReload(pre => !pre)
+        }
+        catch(err){
 
+        }
+    }
     return (
         <tr key={item?._id + "recipe"} className="alert" role="alert">
             <td className="border-bottom-0-custom">

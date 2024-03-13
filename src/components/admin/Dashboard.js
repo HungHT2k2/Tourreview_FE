@@ -123,35 +123,35 @@ const Dashboard = () => {
                 })
             })
     }
-    const openUser = (id) => {
+    // const openUser = (id) => {
 
-        console.log(id);
-        const token = localStorage.getItem("token");
-        axios.put(`/user/open/${id}`, {
-            headers: {
-                authorization: `Bearer ${token}`
-            }
-        })
-            .then(res => {
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: 'Open Success',
-                    showConfirmButton: false,
-                    timer: 1500
-                })
+    //     console.log(id);
+    //     const token = localStorage.getItem("token");
+    //     axios.put(`/user/open/${id}`, {
+    //         headers: {
+    //             authorization: `Bearer ${token}`
+    //         }
+    //     })
+    //         .then(res => {
+    //             Swal.fire({
+    //                 position: 'top-end',
+    //                 icon: 'success',
+    //                 title: 'Open Success',
+    //                 showConfirmButton: false,
+    //                 timer: 1500
+    //             })
 
-            })
-            .catch(err => {
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'error',
-                    title: "Error network",
-                    showConfirmButton: false,
-                    timer: 1500
-                })
-            })
-    }
+    //         })
+    //         .catch(err => {
+    //             Swal.fire({
+    //                 position: 'top-end',
+    //                 icon: 'error',
+    //                 title: "Error network",
+    //                 showConfirmButton: false,
+    //                 timer: 1500
+    //             })
+    //         })
+    // }
     let data = {
         labels,
         datasets: [

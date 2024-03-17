@@ -15,7 +15,7 @@ const Admin = () => {
     setType(slug);
   }, [slug]);
 
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState (null);
   const [userTagObj, setUserTagObj] = useState({});
 
   useEffect(() => {

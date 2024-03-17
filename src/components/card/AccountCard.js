@@ -14,7 +14,7 @@ const AccountCard = ({user,index,setReload}) => {
     }
     useEffect(() => {
         if(user){
-            let tempTags = {};
+             let tempTags = {};
             user?.tags?.forEach(item => {
                 tempTags = {
                     ...tempTags,

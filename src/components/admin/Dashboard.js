@@ -12,7 +12,7 @@ import axios from 'axios';
 import { Bar } from "react-chartjs-2";
 import Swal from 'sweetalert2'
 import moment from 'moment'
-import {useNavigate} from 'react-router-dom'
+import {useNavigate} from  'react-router-dom'
 ChartJS.register(
     CategoryScale,
     LinearScale,

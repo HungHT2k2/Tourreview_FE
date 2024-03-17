@@ -129,10 +129,10 @@ const CreateTour = () => {
             if (imageRef.current) {
                 const formData = new FormData();
                 formData.append("file", imageRef.current);
-                formData.append("upload_preset", "sttruyenxyz");
+                formData.append("upload_preset", "thaianhupload");
                 try {
                     const res = await axios.post(
-                        "https://res.cloudinary.com/dpsxlp0rr/image/upload/v1709474464/shutterstock-706797802-4278-1588047075_sn4aos.jpg",
+                        "https://api.cloudinary.com/v1_1/daq52mzfl/upload",
                         formData
                     );
                     urlImage = "https:" + res.data.url.split(":")[1];

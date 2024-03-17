@@ -108,7 +108,7 @@ const Tour = () => {
   }, []);
 
   useEffect(() => {
-    socket.on("commentReported", (reportedComment) => {
+    socket.on("commentReported",  (reportedComment) => {
       setComments((prevComments) => {
         return prevComments.map((comment) => {
           if (comment._id === reportedComment._id) {

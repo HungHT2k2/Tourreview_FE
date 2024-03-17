@@ -89,7 +89,7 @@ const TourCard = ({ item, image, tour, name, reload }) => {
               {/* kiểm tra xem user?._id (ID của người dùng hiện tại) 
               có tồn tại trong mảng item?.favorites hay không. 
               Nếu tồn tại (người dùng đã yêu thích), nó hiển thị "Unfavorite" */}
-              <i className="fa fa-heart text-primary me-2"></i>
+               <i className="fa fa-heart text-primary me-2"></i>
               {item?.favorites?.find((item) => item === user?._id)
                 ? "Unfavorite"
                 : "Favorite"}

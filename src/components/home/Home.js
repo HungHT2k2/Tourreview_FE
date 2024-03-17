@@ -11,7 +11,7 @@ const Home = () => {
   const [dataNew, setDataNew] = useState([]);
   const [dataChief, setDataChief] = useState([]);
 
-  const user = JSON.parse(localStorage.getItem("user"));
+  // const user = JSON.parse(localStorage.getItem("user"));
 
   //Lấy dữ liệu lưu vào các biến setDataFavorite
   const getTourFavorite = async () => {
@@ -197,9 +197,7 @@ const Home = () => {
             }}
           >
             {dataChief.map((item) => {
-              if (item?._id === user?._id) {
-                return
-              }
+              
               console.log(item)
               return (
                 <SwiperSlide>

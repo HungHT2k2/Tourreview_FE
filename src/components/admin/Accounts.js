@@ -77,7 +77,7 @@ const Accounts = () => {
                                 <span className="sr-only">Previous</span>
                             </div>
                         </li>
-                        <li style={{ cursor: "pointer" }} className="page-item"><div className="page-link active" href="#">1</div></li>
+                        <li style={{ cursor: "pointer" }}  className="page-item"><div className="page-link active" href="#">1</div></li>
                         <li style={{ cursor: "pointer" }} className="page-item"><div className="page-link" href="#">2</div></li>
                         <li style={{ cursor: "pointer" }} className="page-item"><div className="page-link" href="#">3</div></li>
                         <li style={{ cursor: "pointer" }} className="page-item">

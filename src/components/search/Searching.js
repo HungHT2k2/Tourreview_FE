@@ -59,13 +59,13 @@ const Searching = () => {
       setRecipes(response.data);
 
       if (response.data.length === 0) {
-        setNotFoundMessage("Không tìm thấy tour du lịch.");
+        setNotFoundMessage("Không tìm thấy món ăn.");
       } else {
         setNotFoundMessage("");
       }
     } catch (error) {
       console.log(error);
-      setNotFoundMessage("Không tìm thấy tour du lịch .");
+      setNotFoundMessage("Không tìm thấy món ăn .");
     }
   };
   useEffect(() => {
@@ -193,7 +193,11 @@ const Searching = () => {
                   <Link style={{ textDecoration: "none" }} to={`/recipe/${recipe?._id}`}>
                     <RecipeCard
                       name={recipe.name}
-                      image={recipe.tags.find((tag) => tag.k === "image").v|| "https://res.cloudinary.com/dpsxlp0rr/image/upload/v1709474464/shutterstock-706797802-4278-1588047075_sn4aos.jpg"}
+                      image={recipe.tags.find((tag) => tag.k === "image").v}
+                      // image={
+                      //   img?.v ||
+                      //   "https://res.cloudinary.com/dpsxlp0rr/image/upload/v1709474464/shutterstock-706797802-4278-1588047075_sn4aos.jpg"
+                      // }
                       owner={recipe.owner}
                       item={recipe}
                     />

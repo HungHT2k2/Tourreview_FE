@@ -187,7 +187,7 @@ const Dashboard = () => {
                         <div className="bg-light rounded d-flex align-items-center justify-content-between p-4">
                             <i className="fa fa-chart-bar fa-3x text-primary"></i>
                             <div className="ms-3">
-                                <p className="mb-2">Tổng bài viết</p>
+                                <p className="mb-2">Tổng công thức</p>
                                 <h6 className="mb-0">{dashboard?.totalRecipe}</h6>
                             </div>
                         </div>
@@ -196,7 +196,7 @@ const Dashboard = () => {
                         <div className="bg-light rounded d-flex align-items-center justify-content-between p-4">
                             <i className="fa fa-chart-area fa-3x text-primary"></i>
                             <div className="ms-3">
-                                <p className="mb-2">Tổng reviewer</p>
+                                <p className="mb-2">Tổng đầu bếp</p>
                                 <h6 className="mb-0">{dashboard?.totalChief}</h6>
                             </div>
                         </div>
@@ -239,7 +239,7 @@ const Dashboard = () => {
             <div className="container-fluid pt-4 px-4">
                 <div className="bg-light text-center rounded p-4">
                     <div className="d-flex align-items-center justify-content-between mb-4">
-                        <h6 className="mb-0">Bài viết mới</h6>
+                        <h6 className="mb-0">Công thức mới</h6>
                     </div>
                     <div className="table-responsive">
                         <table className="table text-start align-middle table-bordered table-hover mb-0">
@@ -247,7 +247,7 @@ const Dashboard = () => {
                                 <tr className="text-dark">
                                     <th scope="col"><input className="form-check-input" type="checkbox" /></th>
                                     <th scope="col">Ngày tạo</th>
-                                    <th scope="col">Tên bài viết</th>
+                                    <th scope="col">Tên công thức</th>
                                     <th scope="col">Người tạo</th>
                                     <th scope="col">Actions</th>
                                 </tr>

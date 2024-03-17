@@ -1,4 +1,4 @@
-.recipe_bg {
+.tour_bg {
     background-color: #E1E4EB;
     width: 100%;
     min-height: 100vh;
@@ -7,7 +7,7 @@
 
 }
 
-.recipe-img {
+.tour-img {
     width: 100%;
     position: relative;
 
@@ -19,7 +19,7 @@
     }
 }
 
-.recipe-introduction {
+.tour-introduction {
     position: absolute;
     top: 60%;
     left: 36%;
@@ -29,7 +29,7 @@
     transform: rotateZ(-3deg);
 }
 
-.recipe-name {
+.tour-name {
     position: absolute;
     bottom: 70%;
     left: 38%;
@@ -44,7 +44,7 @@
     transform: rotateZ(3deg);
 }
 
-.recipe-owner {
+.tour-owner {
     position: absolute;
     top: 10%;
     left: 65%;
@@ -54,7 +54,7 @@
     border-radius: 10px;
 }
 
-.recipe-owner-image {
+.tour-owner-image {
     width: 100%;
     position: relative;
 
@@ -65,7 +65,7 @@
     }
 }
 
-.recipe-owner-name {
+.tour-owner-name {
     text-align: center;
     margin-top: 5px;
 
@@ -74,7 +74,7 @@
     }
 }
 
-.recipe-owner-btn {
+.tour-owner-btn {
     text-align: center;
 
     &>button {
@@ -84,7 +84,7 @@
     }
 }
 
-.recipe_content {
+.tour_content {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -97,7 +97,7 @@
     }
 }
 
-.recipe-comments {
+.tour-comments {
     width: 100%;
 }
 
@@ -179,7 +179,7 @@ ul {
     left: -30px;
 }
 
-.recipe-owner-qr-img{
+.tour-owner-qr-img{
     position: absolute;
     top:15%;
     left:95%;
@@ -189,7 +189,7 @@ ul {
         height: 70px;
     }
 }
-.recipe-owner-attackment{
+.tour-owner-attackment{
     position: absolute;
     top:-5%;
     left:95%;

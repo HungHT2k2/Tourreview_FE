@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import './style.scss'
-import RecipeCard from '../card/RecipeCard';
+import TourCard from '../card/TourCard';
 import ProfileCard from '../card/ProfileCard';
 import axios from 'axios';
 const Home = () => {
@@ -14,8 +14,8 @@ const Home = () => {
   const user = JSON.parse(localStorage.getItem("user"));
 
   //Lấy dữ liệu lưu vào các biến setDataFavorite
-  const getRecipeFavorite = async () => {
-    const res = await axios.get("/recipe/recipe_favorite", {
+  const getTourFavorite = async () => {
+    const res = await axios.get("/tour/tour_favorite", {
       params: { page: 1, limit: 4 },
     });
     if (res.data.success) {
@@ -23,8 +23,8 @@ const Home = () => {
     }
   };
   //Lấy dữ liệu lưu vào các biến setDataNew
-  const getRecipeNew = async () => {
-    const res = await axios.get("/recipe/recipe_new", {
+  const getTourNew = async () => {
+    const res = await axios.get("/tour/tour_new", {
       params: { page: 1, limit: 4 },
     });
     if (res.data.success) {
@@ -44,8 +44,8 @@ const Home = () => {
 
   useEffect(() => {
     getTopChief();
-    getRecipeFavorite()
-    getRecipeNew()
+    getTourFavorite()
+    getTourNew()
   }, []);
   return (
     <>
@@ -112,20 +112,20 @@ const Home = () => {
                       class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp"
                       data-wow-delay="0.1s"
                     >
-                      <RecipeCard
+                      <TourCard
                         item={item}
                         image={
                           img?.v ||
                           "https://res.cloudinary.com/dpsxlp0rr/image/upload/v1709474464/shutterstock-706797802-4278-1588047075_sn4aos.jpg"
                         }
-                        reload={getRecipeFavorite}
+                        reload={getTourFavorite}
                       />
                     </div>
                   );
                 })}
 
                 <div class="col-12 text-center">
-                  <Link class="btn btn-primary rounded-pill py-3 px-5" to="/recipe/search?type=favorite">Hiển thị thêm</Link>
+                  <Link class="btn btn-primary rounded-pill py-3 px-5" to="/tour/search?type=favorite">Hiển thị thêm</Link>
                 </div>
               </div>
             </div>
@@ -156,20 +156,20 @@ const Home = () => {
                       class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp"
                       data-wow-delay="0.1s"
                     >
-                      <RecipeCard
+                      <TourCard
                         item={item}
                         image={
                           img?.v ||
                           "https://res.cloudinary.com/dpsxlp0rr/image/upload/v1709474464/shutterstock-706797802-4278-1588047075_sn4aos.jpg"
                         }
-                        reload={getRecipeNew}
+                        reload={getTourNew}
                       />
                     </div>
                   );
                 })}
 
                 <div class="col-12 text-center">
-                  <Link class="btn btn-primary rounded-pill py-3 px-5" to="/recipe/search?type=new">Hiển thị thêm</Link>
+                  <Link class="btn btn-primary rounded-pill py-3 px-5" to="/tour/search?type=new">Hiển thị thêm</Link>
                 </div>
               </div>
             </div>

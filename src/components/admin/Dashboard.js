@@ -76,9 +76,9 @@ const Dashboard = () => {
             })
     }, [dashboard]);
 
-    const deleteRecipe = async (id) => {
+    const deleteTour = async (id) => {
         try{
-            await axios.post(`/admin/recipe/${id}`,{
+            await axios.post(`/admin/tour/${id}`,{
             },{
                 headers:{
                     Authorization:`Bearer ${localStorage.getItem('token')}`
@@ -162,7 +162,7 @@ const Dashboard = () => {
             },
             {
                 label: "Công thức mới",
-                data: dashboard?.newRecipeCounts || [],
+                data: dashboard?.newTourCounts || [],
                 backgroundColor: "rgba(53, 162, 235, 1)",
             },
         ],
@@ -188,7 +188,7 @@ const Dashboard = () => {
                             <i className="fa fa-chart-bar fa-3x text-primary"></i>
                             <div className="ms-3">
                                 <p className="mb-2">Tổng bài viết</p>
-                                <h6 className="mb-0">{dashboard?.totalRecipe}</h6>
+                                <h6 className="mb-0">{dashboard?.totalTour}</h6>
                             </div>
                         </div>
                     </div>
@@ -253,13 +253,13 @@ const Dashboard = () => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {dashboard?.newRecipe?.map(item =>
+                                {dashboard?.newTour?.map(item =>
                                     <tr key={item?._id + "dashboard"}>
                                         <td><input className="form-check-input" type="checkbox" /></td>
                                         <td>{moment(item?.createdAt).fromNow()}</td>
                                         <td>{item?.name}</td>
                                         <td>Jhon Doe</td>
-                                        <td><button className="btn btn-sm btn-primary" href="" onClick={() => deleteRecipe(item?._id)}> Change status</button></td>
+                                        <td><button className="btn btn-sm btn-primary" href="" onClick={() => deleteTour(item?._id)}> Change status</button></td>
                                     </tr>)}
                             </tbody>
                         </table>

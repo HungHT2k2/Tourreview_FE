@@ -3,22 +3,22 @@ import moment from 'moment';
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Swal from 'sweetalert2'
-import RecipeAdminCard from './RecipeAdminCard';
-const Recipes = () => {
+import TourAdminCard from './TourAdminCard';
+const Tours = () => {
 
-    const [recipes, setRecipes] = useState([]);
+    const [tours, setTours] = useState([]);
 
-    const [reload,setReload] = useState(false);
+    const [reload, setReload] = useState(false);
 
     useEffect(() => {
         const token = localStorage.getItem("token");
-        axios.get('/admin/recipe', {
+        axios.get('/admin/tour', {
             headers: {
                 authorization: `Bearer ${token}`
             }
         })
             .then(res => {
-                setRecipes(res.data?.recipes);
+                setTours(res.data?.tours);
             })
             .catch(err => {
                 Swal.fire({
@@ -43,12 +43,12 @@ const Recipes = () => {
                                         <th>Tên món</th>
                                         <th>Người tạo</th>
                                         <th>Status</th>
-                                        <th style={{width:'15%'}}>&nbsp;</th>
+                                        <th style={{ width: '15%' }}>&nbsp;</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {recipes?.map((item,index) => 
-                                    <RecipeAdminCard setReload={setReload} key={item?._id + "a"} item={item} index={index}/>)}
+                                    {tours?.map((item, index) =>
+                                        <TourAdminCard setReload={setReload} key={item?._id + "a"} item={item} index={index} />)}
                                 </tbody>
                             </table>
                         </div>
@@ -80,4 +80,4 @@ const Recipes = () => {
     )
 }
 
-export default Recipes
+export default Tours

@@ -54,7 +54,7 @@ const Accounts = () => {
                                         <th>ID</th>
                                         <th>Thông tin</th>
                                         <th>Vai trò</th>
-                                        <th>Công thức</th>
+                                        <th>Tour</th>
                                         <th>Theo dõi</th>
                                         <th>Status</th>
                                         <th>&nbsp;</th>

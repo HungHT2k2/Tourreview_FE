@@ -30,7 +30,7 @@ const AccountCard = ({user,index,setReload}) => {
     },[user]);
     const colourOptions = [
         { value: 'admin', label: 'Admin' },
-        { value: 'chief', label: 'Đầu bếp' },
+        { value: 'reviewer', label: 'Reviewer' },
         { value: 'user', label: 'User' },
     ];
 
@@ -103,7 +103,7 @@ const AccountCard = ({user,index,setReload}) => {
                     />
                 </div> : selectedOption.value}
             </td>
-            <td className="border-bottom-0-custom">{user?.ownerRecipes?.length}</td>
+            <td className="border-bottom-0-custom">{user?.ownerTours?.length}</td>
             <td className="border-bottom-0-custom">{user?.followers?.length}</td>
             <td className="status border-bottom-0-custom"><span className={user?.status === 'opened' ? "active" : "inactiveColor"}>
                 {user?.status}

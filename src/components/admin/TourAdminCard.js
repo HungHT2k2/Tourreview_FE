@@ -3,7 +3,7 @@ import moment from 'moment';
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Swal from 'sweetalert2'
-const RecipeAdminCard = ({item,index,setReload}) => {
+const TourAdminCard = ({item,index,setReload}) => {
 
     const [tags,setTags] = useState({});
     const [ownerTags,userOwnerTags] = useState({});
@@ -32,7 +32,7 @@ const RecipeAdminCard = ({item,index,setReload}) => {
 
     const handleChangeStatus = async () => {
         try{
-            await axios.post(`/admin/recipe/${item?._id}`,{
+            await axios.post(`/admin/tour/${item?._id}`,{
             },{
                 headers:{
                     Authorization:`Bearer ${localStorage.getItem('token')}`
@@ -52,7 +52,7 @@ const RecipeAdminCard = ({item,index,setReload}) => {
         }
     }
     return (
-        <tr key={item?._id + "recipe"} className="alert" role="alert">
+        <tr key={item?._id + "tour"} className="alert" role="alert">
             <td className="border-bottom-0-custom">
                 {index + 1}
             </td>
@@ -93,4 +93,4 @@ const RecipeAdminCard = ({item,index,setReload}) => {
     )
 }
 
-export default RecipeAdminCard
+export default TourAdminCard

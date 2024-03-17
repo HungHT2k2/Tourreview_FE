@@ -14,9 +14,9 @@ socket.on("connect", () => {
 socket.on("disconnect", () => {
   console.log("WebSocket disconnected");
 });
-const Recipe = () => {
+const Tour = () => {
   const { slug } = useParams();
-  const [recipe, setRecipe] = useState({});
+  const [tour, setTour] = useState({});
   const [user, setUser] = useState({});
   const [comment, setComment] = useState("");
   const [comments, setComments] = useState([]);
@@ -24,7 +24,7 @@ const Recipe = () => {
   const [editedCommentContent, setEditedCommentContent] = useState("");
   const [editingCommentId, setEditingCommentId] = useState(null);
 
-  const recipeContentRef = useRef();
+  const tourContentRef = useRef();
 
   const natigate = useNavigate();
   useEffect(() => {
@@ -33,27 +33,27 @@ const Recipe = () => {
       setUser(JSON.parse(loadUser));
     }
     axios
-      .get(`/recipe/${slug}`)
+      .get(`/tour/${slug}`)
       .then((res) => {
         let tags = {};
-        res.data?.recipe?.tags.forEach((item) => {
+        res.data?.tour?.tags.forEach((item) => {
           tags = {
             ...tags,
             [item.k]: item.v,
           };
         });
         let ownerTag = {};
-        res.data?.recipe?.owner?.tags?.forEach((item) => {
+        res.data?.tour?.owner?.tags?.forEach((item) => {
           ownerTag = {
             ...ownerTag,
             [item.k]: item.v,
           };
         });
-        setRecipe({
-          ...res.data?.recipe,
+        setTour({
+          ...res.data?.tour,
           tags: tags,
           owner: {
-            ...res.data?.recipe?.owner,
+            ...res.data?.tour?.owner,
             tags: ownerTag,
           },
         });
@@ -92,10 +92,10 @@ const Recipe = () => {
   }, []);
 
   useEffect(() => {
-    if(recipe){
-      recipeContentRef.current.innerHTML = recipe?.recipes
+    if(tour){
+      tourContentRef.current.innerHTML = tour?.tours
     }
-  },[recipe]);
+  },[tour]);
 
   useEffect(() => {
     socket.on("commentUpdated", (updatedComment) => {
@@ -142,7 +142,7 @@ const Recipe = () => {
 
     const newCommentObject = {
       content: comment,
-      recipeId: recipe._id,
+      tourId: tour._id,
       parentId: null,
     };
 
@@ -259,23 +259,23 @@ const Recipe = () => {
   };
 
   return (
-    <div className="recipe_bg">
+    <div className="tour_bg">
       <div className="container">
         <div className="row">
           <div className="col-12">
-            <div className="recipe-img">
+            <div className="tour-img">
               <img
                 src={
-                  recipe?.tags?.image ||
+                  tour?.tags?.image ||
                   "https://res.cloudinary.com/dpsxlp0rr/image/upload/v1709474464/shutterstock-706797802-4278-1588047075_sn4aos.jpg"
                 }
               />
-              <div className="recipe-introduction">
-                <p>{recipe?.introduction}</p>
+              <div className="tour-introduction">
+                <p>{tour?.introduction}</p>
               </div>
-              <div className="recipe-name">
+              <div className="tour-name">
                 <p style={{ marginBottom: "8px", textAlign: "center" }}>
-                  {recipe?.name}
+                  {tour?.name}
                 </p>
                 <div className="rating d-flex justify-content-center w-100 flex-row-reverse">
                   {renderStars()}
@@ -284,10 +284,10 @@ const Recipe = () => {
             </div>
           </div>
         </div>
-        <div className="recipe_content">
-          <div ref={recipeContentRef} className="col-10"></div>
+        <div className="tour_content">
+          <div ref={tourContentRef} className="col-10"></div>
         </div>
-        <div className="recipe-comments-rate">
+        <div className="tour-comments-rate">
           <section>
             <div style={{ marginTop: "50px" }} className="container text-dark">
               <div className="row d-flex justify-content-center">
@@ -379,7 +379,7 @@ const Recipe = () => {
             </div>
           </section>
         </div>
-        <div className="recipe-comments">
+        <div className="tour-comments">
           <section>
             <div className="container my-5">
               <div className="row d-flex justify-content-center">
@@ -579,4 +579,4 @@ const Recipe = () => {
   );
 };
 
-export default Recipe;
+export default Tour;

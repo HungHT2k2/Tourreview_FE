@@ -51,7 +51,7 @@ const ProfileCard = ({ image, item, reload }) => {
                     >
                       <div>
                         <p class="small text-muted mb-1">Vlog</p>
-                        <p class="mb-0">{item?.recipe_size}</p>
+                        <p class="mb-0">{item?.tour_size}</p>
                       </div>
                       <div class="px-3">
                         <p class="small text-muted mb-1">Followers</p>

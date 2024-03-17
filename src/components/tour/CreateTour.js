@@ -15,11 +15,11 @@ import { redirect, useNavigate } from 'react-router-dom';
 import CreatableSelect from 'react-select/creatable';
 import Swal from 'sweetalert2';
 
-const CreateRecipe = () => {
-        const [recipe_name, setRecipe_name] = useState('')
-    const [isRecipeNameValid, setIsRecipeNameValid] = useState(true);
-    const [isRecipe, setIsRecipe] = useState(true);
-    const [recipe_introduction, setRecipe_introduction] = useState('')
+const CreateTour = () => {
+        const [tour_name, setTour_name] = useState('')
+    const [isTourNameValid, setIsTourNameValid] = useState(true);
+    const [isTour, setIsTour] = useState(true);
+    const [tour_introduction, setTour_introduction] = useState('')
     const [isLoading, setIsLoading] = useState(false);
     const [options, setOptions] = useState([]);
     const [value, setValue] = useState('');
@@ -91,7 +91,7 @@ const CreateRecipe = () => {
     };
 
     useEffect(() => {
-        axios.get('/recipe/common').then((response) => {
+        axios.get('/tour/common').then((response) => {
 
             setOptions(response.data);
         });
@@ -102,7 +102,7 @@ const CreateRecipe = () => {
             const newOption = createOption(inputValue);
             setIsLoading(false);
             axios.post(
-                "/recipe/common", {
+                "/tour/common", {
                 key: "country",
                 label: inputValue,
                 value: inputValue,
@@ -114,14 +114,14 @@ const CreateRecipe = () => {
     const handleBackPage = () => {
         navigate(-1);
     }
-    const handleSubmitRecipe = async () => {
-        if (recipe_name.trim() === '') {
-            setIsRecipeNameValid(false);
+    const handleSubmitTour = async () => {
+        if (tour_name.trim() === '') {
+            setIsTourNameValid(false);
             return;
         }
         const contentState = editorState.getCurrentContent();
         if (!contentState.hasText()) {
-            setIsRecipe(false);
+            setIsTour(false);
             return;
         }
         try {
@@ -148,10 +148,10 @@ const CreateRecipe = () => {
                 }
             }
             const token = localStorage.getItem('token');
-            const data = await axios.post(`/recipe`,
+            const data = await axios.post(`/tour`,
                 {
-                    name: recipe_name, introduction: recipe_introduction,
-                    recipes: content,
+                    name: tour_name, introduction: tour_introduction,
+                    tours: content,
                     tags: [
                         {
                             k: "image",
@@ -185,7 +185,7 @@ const CreateRecipe = () => {
         { value: 'yellow', label: 'Yellow' }
     ])
     return (
-        <div className='create_recipe_container'>
+        <div className='create_tour_container'>
             <div class="wrapper" >
                 <div class="inner">
                     <div class="image-holder">
@@ -213,10 +213,10 @@ const CreateRecipe = () => {
                     <div style={{ width: "800px" }} className='create_form' action="">
                         <h3 style={{ marginBottom: "30px" }}>Thêm Bài Viết</h3>
                         <div class="form-holder active w-100">
-                            <textarea style={{ width: "100%", minHeight: "100px" }} type="text" placeholder="Tên địa điểm du lịch" class={`form-control ${!isRecipeNameValid ? 'invalid' : ''}`} onChange={e => { setRecipe_name(e.target.value); setIsRecipeNameValid(true) }} />
+                            <textarea style={{ width: "100%", minHeight: "100px" }} type="text" placeholder="Tên địa điểm du lịch" class={`form-control ${!isTourNameValid ? 'invalid' : ''}`} onChange={e => { setTour_name(e.target.value); setIsTourNameValid(true) }} />
                         </div>
                         <div class="form-holder active">
-                            <textarea style={{ width: "100%", minHeight: "200px" }} type="text" placeholder="Chọn địa điểm" class="form-control" onChange={e => setRecipe_introduction(e.target.value)} />
+                            <textarea style={{ width: "100%", minHeight: "200px" }} type="text" placeholder="Chọn địa điểm" class="form-control" onChange={e => setTour_introduction(e.target.value)} />
                         </div>
                     </div>
                     
@@ -233,9 +233,9 @@ const CreateRecipe = () => {
                         />
                     </div>
                 </div> */}
-                <div className='recipe_create'>
+                <div className='tour_create'>
                     <h3 style={{ marginTop: "20px" }}>Giới thiệu về địa điểm du lịch</h3>
-                    <div className={`recipe_create_edit ${!isRecipe ? 'invalid  ' : ''}`}>
+                    <div className={`tour_create_edit ${!isTour ? 'invalid  ' : ''}`}>
                         <Editor
                             editorState={editorState}
                             onEditorStateChange={handleChange}
@@ -269,7 +269,7 @@ const CreateRecipe = () => {
                             }}
                         />
                     </div>
-                    <div style={{ marginTop: "30px", marginBottom: "20px" }} className='d-flex justify-content-center' onClick={handleSubmitRecipe}>
+                    <div style={{ marginTop: "30px", marginBottom: "20px" }} className='d-flex justify-content-center' onClick={handleSubmitTour}>
                         <button>Tạo mới</button>
                     </div>
                 </div>
@@ -281,4 +281,4 @@ const CreateRecipe = () => {
     )
 }
 
-export default CreateRecipe
+export default CreateTour

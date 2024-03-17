@@ -64,17 +64,7 @@ export const publicRouter = [
 	{
 		element: EditRecipe,
 		path: "/recipe/edit/:id"
-	},
-	{
-		element: Admin,
-		path: "/admin/manager/:slug"
-	},
-	{
-		element: EditRecipe,
-		path: "/recipe/edit/:id"
 	}
-
-
 ];
 export const adminRouter = [
 	

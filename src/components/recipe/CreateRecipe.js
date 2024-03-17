@@ -186,13 +186,14 @@ const CreateRecipe = () => {
     ])
     return (
         <div className='create_recipe_container'>
-            <div class="wrapper">
+            <div class="wrapper" >
                 <div class="inner">
                     <div class="image-holder">
                         <div style={{
                             width: '400px',
                             height: "400px", border: "1px solid rgba(0,0,0,0.1)"
-                        }} className='d-flex justify-content-center align-items-center' {...getRootProps()}>
+                        }} 
+                        className='d-flex justify-content-center align-items-center' {...getRootProps()}>
                             <input {...getInputProps()} />
                             {
                                 !image ? <div>
@@ -209,7 +210,7 @@ const CreateRecipe = () => {
                             }
                         </div>
                     </div>
-                    <div style={{ width: "400px" }} className='create_form' action="">
+                    <div style={{ width: "800px" }} className='create_form' action="">
                         <h3 style={{ marginBottom: "30px" }}>Thêm Bài Viết</h3>
                         <div class="form-holder active w-100">
                             <textarea style={{ width: "100%", minHeight: "100px" }} type="text" placeholder="Tên địa điểm du lịch" class={`form-control ${!isRecipeNameValid ? 'invalid' : ''}`} onChange={e => { setRecipe_name(e.target.value); setIsRecipeNameValid(true) }} />
@@ -218,6 +219,7 @@ const CreateRecipe = () => {
                             <textarea style={{ width: "100%", minHeight: "200px" }} type="text" placeholder="Chọn địa điểm" class="form-control" onChange={e => setRecipe_introduction(e.target.value)} />
                         </div>
                     </div>
+                    
                 </div>
                 {/* <div className='create_form-2'>
                     <div style={{ margin: "10px 0" }} class="form-holder active w-100">

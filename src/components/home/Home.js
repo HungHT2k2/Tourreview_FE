@@ -31,7 +31,7 @@ const Home = () => {
       setDataNew(res.data.data);
     }
   };
-    //Lấy dữ liệu lưu vào các biến setDataChief
+  //Lấy dữ liệu lưu vào các biến setDataChief
   const getTopChief = async () => {
     const res = await axios.get("/user/top_chief", {
       params: { page: 1, limit: 9 },
@@ -78,7 +78,7 @@ const Home = () => {
             </div>
           </div>
 
-          
+
           <button class="carousel-control-prev" type="button" data-bs-target="#header-carousel"
             data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -99,11 +99,12 @@ const Home = () => {
               <h1 style={{ fontWeight: "700" }} class="display-6 mb-2">TOUR DU LỊCH NỔI BẬT</h1>
               <p>Những địa điểm du lịch nổi bật được nhiều người yêu thích nhất.</p>
             </div>
+
           </div>
           <div class="tab-content">
             <div class="tab-pane fade show p-0 active">
               <div class="row g-4">
-{/* hiển thị danh sách các món ăn yêu thích*/}
+                {/* hiển thị danh sách các món ăn yêu thích*/}
                 {dataFavorite.map((item) => {
                   const img = item.tags?.find((el) => el.k === "image");
                   return (
@@ -131,6 +132,11 @@ const Home = () => {
           </div>
         </div>
       </div>
+
+
+
+
+
 
       <div class="container-xxl py-5">
         <div class="container">

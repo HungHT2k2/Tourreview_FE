@@ -3,7 +3,7 @@ import './style.scss'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import Dashboard from './Dashboard'
 import Accounts from './Accounts'
-import Recipes from './Recipes'
+import Tours from './Tours'
 
 
 const Admin = () => {
@@ -56,7 +56,7 @@ const Admin = () => {
             <div style={{ minHeight: "50vh" }} className="navbar-nav w-100">
               <Link to="/admin/manager/dashboard" className={`nav-item nav-link ${type === 'dashboard' && 'active'}`}><i className="fa fa-tachometer-alt me-2"></i>Dashboard</Link>
               <Link to="/admin/manager/accounts" className={`nav-item nav-link ${type === 'accounts' && 'active'}`}><i className="fa fa-users"></i>Tài khoản</Link>
-              <Link to="/admin/manager/recipes" className={`nav-item nav-link ${type === 'recipes' && 'active'}`}><i className="fa fa-keyboard me-2"></i>Công thức</Link>
+              <Link to="/admin/manager/tours" className={`nav-item nav-link ${type === 'tours' && 'active'}`}><i className="fa fa-keyboard me-2"></i>Công thức</Link>
             </div>
           </nav>
         </div>
@@ -93,7 +93,7 @@ const Admin = () => {
           </nav>
           {type === 'dashboard' && <Dashboard />}
           {type === 'accounts' && <Accounts />}
-          {type === 'recipes' && <Recipes />}
+          {type === 'tours' && <Tours />}
         </div>
       </div>
       <div href="#" className="btn btn-lg btn-primary btn-lg-square back-to-top"><i className="fa fa-arrow-up"></i></div>

@@ -2,12 +2,12 @@ import axios from "axios";
 import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-const RecipeCard = ({ item, image, recipe, name, reload }) => {
+const TourCard = ({ item, image, tour, name, reload }) => {
   //Lấy thông tin người dùng từ localStorage (dựa trên đối tượng "user").
   const user = JSON.parse(localStorage.getItem("user"));
 
   const navigate = useNavigate();
-  const recipeId = recipe?._id;
+  const tourId = tour?._id;
 
   //xử lý sự kiện khi người dùng nhấn vào nút "Favorite".
   const handleAddFavorite = async () => {
@@ -39,7 +39,7 @@ const RecipeCard = ({ item, image, recipe, name, reload }) => {
   return (
     <div style={{ margin: "5px 0" }} className="product-item">
       <div className="position-relative bg-light overflow-hidden">
-        <Link to={`/recipe/${item?._id}`}>
+        <Link to={`/tour/${item?._id}`}>
           <img
             style={{
               height: "200px",
@@ -55,7 +55,7 @@ const RecipeCard = ({ item, image, recipe, name, reload }) => {
         <Link
           style={{ textDecoration: "none" }}
           className="d-block h5 mb-1"
-          to="/recipe/id"
+          to="/tour/id"
         >
           {item?.name || name}
         </Link>
@@ -75,7 +75,7 @@ const RecipeCard = ({ item, image, recipe, name, reload }) => {
             <Link
               style={{ textDecoration: "none" }}
               className="text-body"
-              to={`/recipe/${item?._id}`}
+              to={`/tour/${item?._id}`}
             >
               <i className="fa fa-eye text-primary me-2"></i>View detail
             </Link>
@@ -101,4 +101,4 @@ const RecipeCard = ({ item, image, recipe, name, reload }) => {
   );
 };
 
-export default RecipeCard;
+export default TourCard;

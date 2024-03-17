@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import "./style.scss";
-import RecipeCard from "../card/RecipeCard";
+import TourCard from "../card/TourCard";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import ChefCard from "../card/ChefCard";
+import ReviewerCard from "../card/ReviewerCard";
 import { useLocation } from "react-router-dom";
 import Pagination from "./Pagination";
 
@@ -11,7 +11,7 @@ const Searching = () => {
   const [name, setName] = useState("");
   const [type, setType] = useState("");
   const [country, setCountry] = useState("");
-  const [recipes, setRecipes] = useState([]);
+  const [tours, setTours] = useState([]);
   const [notFoundMessage, setNotFoundMessage] = useState("");
   const location = useLocation();
   const [currentPage, setCurrentPage] = useState(1);
@@ -20,15 +20,15 @@ const Searching = () => {
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
-    getRecipe(undefined, page);
+    getTour(undefined, page);
   };
 
-  const getRecipe = async (url, page) => {
+  const getTour = async (url, page) => {
     const res = await axios.get(url || urlApi, {
       params: { page, limit: 6 },
     });
     if (res?.data?.success) {
-      setRecipes(res?.data?.data);
+      setTours(res?.data?.data);
       setsize(res?.data?.size)
     }
   };
@@ -53,10 +53,10 @@ const Searching = () => {
     };
 
     try {
-      const response = await axios.get("http://localhost:5000/recipe/search", {
+      const response = await axios.get("http://localhost:5000/tour/search", {
         params,
       });
-      setRecipes(response.data);
+      setTours(response.data);
 
       if (response.data.length === 0) {
         setNotFoundMessage("Không tìm thấy tour du lịch.");
@@ -70,11 +70,11 @@ const Searching = () => {
   };
   useEffect(() => {
     if (new URLSearchParams(location.search).get("type") === "new") {
-      setUrlApi("/recipe/recipe_new");
-      getRecipe("/recipe/recipe_new", 1);
+      setUrlApi("/tour/tour_new");
+      getTour("/tour/tour_new", 1);
     } else {
-      setUrlApi("/recipe/recipe_favorite");
-      getRecipe("/recipe/recipe_favorite", 1);
+      setUrlApi("/tour/tour_favorite");
+      getTour("/tour/tour_favorite", 1);
     }
   }, []);
 
@@ -82,7 +82,7 @@ const Searching = () => {
     setName("");
     setType("");
     setCountry("");
-    setRecipes([]);
+    setTours([]);
     setNotFoundMessage("");
   };
 
@@ -184,18 +184,18 @@ const Searching = () => {
                   <h3>{notFoundMessage}</h3>
                 </div>
               )}
-              {recipes.map((recipe) => (
+              {tours.map((tour) => (
                 <div
                   className="col-xl-4 col-lg-4 col-md-6 wow fadeInUp"
                   data-wow-delay="0.1s"
-                  key={recipe._id}
+                  key={tour._id}
                 >
-                  <Link style={{ textDecoration: "none" }} to={`/recipe/${recipe?._id}`}>
-                    <RecipeCard
-                      name={recipe.name}
-                      image={recipe.tags.find((tag) => tag.k === "image").v|| "https://res.cloudinary.com/dpsxlp0rr/image/upload/v1709474464/shutterstock-706797802-4278-1588047075_sn4aos.jpg"}
-                      owner={recipe.owner}
-                      item={recipe}
+                  <Link style={{ textDecoration: "none" }} to={`/tour/${tour?._id}`}>
+                    <TourCard
+                      name={tour.name}
+                      image={tour.tags.find((tag) => tag.k === "image").v|| "https://res.cloudinary.com/dpsxlp0rr/image/upload/v1709474464/shutterstock-706797802-4278-1588047075_sn4aos.jpg"}
+                      owner={tour.owner}
+                      item={tour}
                     />
                   </Link>
                 </div>

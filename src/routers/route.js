@@ -3,19 +3,19 @@ import Register from "../components/auth/Register";
 import Home from "../components/home/Home";
 import Publiclayout from "../components/layout/publicLayout/Publiclayout";
 import Profile from "../components/profile/Profile";
-import Recipe from "../components/detail/Recipe";
+import Tour from "../components/detail/Tour";
 import Searching from "../components/search/Searching";
 import Admin from "../components/admin/Admin";
-import CreateRecipe from "../components/recipe/CreateRecipe";
+import CreateTour from "../components/tour/CreateTour";
 import Forgot from "../components/auth/Forgot";
 import ChangePassword from '../components/auth/ChangePassword';
-import TableRecipe from "../components/recipe/tableRecipe";
-import EditRecipe from "../components/recipe/EditRecipe";
+import TableTour from "../components/tour/tableTour";
+import EditTour from "../components/tour/EditTour";
 
 export const publicRouter = [
 	{
-		element: TableRecipe,
-		path: "/recipe/myrecipe",
+		element: TableTour,
+		path: "/tour/mytour",
 	},
 	{
 		element: Home,
@@ -44,17 +44,17 @@ export const publicRouter = [
 		layout: Publiclayout,
 	},
 	{
-		element: CreateRecipe,
-		path: "/recipe/create"
+		element: CreateTour,
+		path: "/tour/create"
 	},
 	{
-		element: Recipe,
-		path: "/recipe/:slug",
+		element: Tour,
+		path: "/tour/:slug",
 		layout: Publiclayout,
 	},
 	{
 		element: Searching,
-		path: "/recipe/search",
+		path: "/tour/search",
 		layout: Publiclayout,
 	},
 	{
@@ -62,8 +62,8 @@ export const publicRouter = [
 		path: "/admin/manager/:slug"
 	},
 	{
-		element: EditRecipe,
-		path: "/recipe/edit/:id"
+		element: EditTour,
+		path: "/tour/edit/:id"
 	}
 ];
 export const adminRouter = [

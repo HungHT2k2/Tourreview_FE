@@ -16,31 +16,31 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    & > p {
-        margin:0;
+
+    &>p {
+        margin: 0;
         display: -webkit-box;
         white-space: nowrap;
     }
 }
-.header_user_n:last-child{
-    border-bottom:none;
+
+.header_user_n:last-child {
+    border-bottom: none;
 }
+
 .footer {
     background-color: #333;
     color: #fff;
-    padding: 120px;
+    padding-top: 125px;
     text-align: center;
     position: relative;
 
-  }
-  
-  .footer-image {
+}
+
+.footer-image {
     position: absolute;
     transform: translate(-50%, -50%);
     max-width: 100%;
     height: auto;
-    border-radius: 50%;
-  }
-  
- 
-  
+
+}

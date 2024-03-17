@@ -1,25 +1,25 @@
 import { useEffect, useState } from 'react'
 import './style.scss'
 import axios from 'axios';
-import { getOwnRecipe, getRecipe } from './recipeService';
+import { getOwnTour, getTour } from './tourService';
 import { useNavigate } from 'react-router-dom';
-const TableRecipe = () => {
+const TableTour = () => {
     const navigate = useNavigate();
-    const [dataRecipe, setDataRecipe] = useState([]);
-    console.log(dataRecipe);
+    const [dataTour, setDataTour] = useState([]);
+    console.log(dataTour);
     useEffect(() => {
-        getOwnRecipe().then(data => {setDataRecipe(data.data.recipe)})
+        getOwnTour().then(data => {setDataTour(data.data.tour)})
     }, [])
     const handleDelete = (id) => {
         const token = localStorage.getItem('token');
 
-        axios.delete(`http://localhost:5000/recipe/${id}`,{
+        axios.delete(`http://localhost:5000/tour/${id}`,{
             headers: {
                 authorization: `Bearer ${token}`
             }
         }).then(() => {
-            // Xóa thành công, cập nhật lại state dataRecipe
-            setDataRecipe(prevData => prevData.filter(data => data._id !== id));
+            // Xóa thành công, cập nhật lại state dataTour
+            setDataTour(prevData => prevData.filter(data => data._id !== id));
         })
         .catch(error => {
             // Xử lý lỗi khi xóa không thành công
@@ -28,10 +28,10 @@ const TableRecipe = () => {
     }
     const handleEdit = (id) => {
         console.log(id);
-        navigate(`/recipe/edit/${id}`);
+        navigate(`/tour/edit/${id}`);
     }
-    return (<div className='list-recipe'>
-        <h2>Your Recipes</h2>
+    return (<div className='list-tour'>
+        <h2>Your Tours</h2>
         <table>
             <thead>
                 <tr>
@@ -44,7 +44,7 @@ const TableRecipe = () => {
             <tbody>
                 
                     {
-                        dataRecipe.map((data,index) => {
+                        dataTour.map((data,index) => {
                             return (
                                 <tr>
                                     <td>{index+1}</td>
@@ -64,4 +64,4 @@ const TableRecipe = () => {
     </div>
     )
 }
-export default TableRecipe
+export default TableTour

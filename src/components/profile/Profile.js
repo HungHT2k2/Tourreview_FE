@@ -2,8 +2,8 @@ import React, { useCallback, useEffect, useRef, useState } from 'react'
 import { useDropzone } from 'react-dropzone'
 import './style.scss'
 import { useNavigate, useParams } from 'react-router-dom'
-import OwnRecipeCard from '../card/OwnRecipeCard';
-import RecipeCard from '../card/RecipeCard';
+import OwnTourCard from '../card/OwnTourCard';
+import TourCard from '../card/TourCard';
 import axios from 'axios'
 import Swal from 'sweetalert2';
 const Profile = () => {
@@ -265,7 +265,7 @@ const Profile = () => {
                                                 setEdit(true);
                                             }} style={{ backgroundColor: "#93E2BB", border: "none" }} type="button" className="btn btn-primary">Sửa thông tin</button>
                                             <button onClick={() => {
-                                                navigate('/recipe/create');
+                                                navigate('/tour/create');
                                             }} style={{ border: "none", marginLeft: "10px" }} type="button" className="btn btn-secondary">Thêm bài viết</button>
                                         </div> :
                                         <div className="d-flex justify-content-center mb-2">
@@ -355,17 +355,17 @@ const Profile = () => {
                                 </div>
                                 {type === '' ?
                                     <div className='row'>
-                                        {user?.ownerRecipes?.map(item =>
-                                            <div key={item?._id + "ownRecipe"} style={{ marginBottom: "20px" }} className="col-xl-4 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                                                <OwnRecipeCard item={item} user={user} />
+                                        {user?.ownerTours?.map(item =>
+                                            <div key={item?._id + "ownTour"} style={{ marginBottom: "20px" }} className="col-xl-4 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                                                <OwnTourCard item={item} user={user} />
                                             </div>
                                         )}
                                     </div> :
                                     type === "love" ? <div className='row'>
-                                        {user?.favoriteRecipes?.map(item => {
+                                        {user?.favoriteTours?.map(item => {
                                             const img = item.tags?.find((el) => el.k === "image");
-                                            return <div key={item?._id + "ownRecipe"} style={{ marginBottom: "20px" }} className="col-xl-4 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                                                <RecipeCard item={item} image={img?.v} reload={() => setReload(pre => !pre)} />
+                                            return <div key={item?._id + "ownTour"} style={{ marginBottom: "20px" }} className="col-xl-4 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                                                <TourCard item={item} image={img?.v} reload={() => setReload(pre => !pre)} />
                                             </div>
 
 
@@ -388,12 +388,12 @@ const Profile = () => {
                                                                             </div>
                                                                             <div className="flex-grow-1 ms-3">
                                                                                 <h5 className="mb-1">{item?.name}</h5>
-                                                                                <p className="mb-2 pb-1" style={{ color: "#2b2a2a" }}>{item?.ownerRecipes?.length > 0 ? "Reviewer" : "User"}</p>
+                                                                                <p className="mb-2 pb-1" style={{ color: "#2b2a2a" }}>{item?.ownerTours?.length > 0 ? "Reviewer" : "User"}</p>
                                                                                 <div className="d-flex justify-content-start rounded-3 p-2 mb-2"
                                                                                     style={{ backgroundColor: "#efefef" }}>
                                                                                     <div>
                                                                                         <p className="small text-muted mb-1">Vlog</p>
-                                                                                        <p className="mb-0">{item?.ownerRecipes?.length}</p>
+                                                                                        <p className="mb-0">{item?.ownerTours?.length}</p>
                                                                                     </div>
                                                                                     <div className="px-3">
                                                                                         <p className="small text-muted mb-1">Followers</p>

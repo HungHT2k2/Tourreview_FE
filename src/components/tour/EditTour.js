@@ -14,16 +14,16 @@ import { useNavigate, useParams } from "react-router-dom"
 import CreatableSelect from 'react-select/creatable';
 import Swal from "sweetalert2";
 
-const EditRecipe = () => {
+const EditTour = () => {
     const { id } = useParams();
-    const [dataRecipe, setDataRecipe] = useState({});
+    const [dataTour, setDataTour] = useState({});
     const [isLoading, setIsLoading] = useState(false);
     const [options, setOptions] = useState([]);
     const [value, setValue] = useState('');
 
-    const [recipe_name, setRecipe_name] = useState('')
-    const [recipe_introduction, setRecipe_introduction] = useState('')
-    const [recipe, setRecipe] = useState('')
+    const [tour_name, setTour_name] = useState('')
+    const [tour_introduction, setTour_introduction] = useState('')
+    const [tour, setTour] = useState('')
     const [image, setImage] = useState('');
 
     const [editorState, setEditorState] = useState(EditorState.createEmpty());
@@ -40,7 +40,7 @@ const EditRecipe = () => {
             const newOption = createOption(inputValue);
             setIsLoading(false);
             axios.post(
-                "/recipe/common", {
+                "/tour/common", {
                 key: "country",
                 label: inputValue,
                 value: inputValue,
@@ -57,16 +57,16 @@ const EditRecipe = () => {
     }, [])
     const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop })
     useEffect(() => {
-        axios.get(`/recipe/${id}`).then(data => {
+        axios.get(`/tour/${id}`).then(data => {
             let newTags = {};
-            data?.data?.recipe?.tags?.forEach(item => {
+            data?.data?.tour?.tags?.forEach(item => {
                 newTags = {
                     ...newTags,
                     [item.k]: item.v
                 }
             })
-            setDataRecipe({
-                ...data?.data?.recipe,
+            setDataTour({
+                ...data?.data?.tour,
                 tags: newTags
             });
             console.log(newTags)
@@ -75,18 +75,18 @@ const EditRecipe = () => {
     }, [])
 
     useEffect(() => {
-        axios.get('/recipe/common').then((response) => {
+        axios.get('/tour/common').then((response) => {
             setOptions(response.data);
         });
     }, [])
 
     useEffect(() => {
-        if (dataRecipe && dataRecipe.recipes) {
-            const convertedContent = convertFromHTML(dataRecipe.recipes);
+        if (dataTour && dataTour.tours) {
+            const convertedContent = convertFromHTML(dataTour.tours);
             const contentState = ContentState.createFromBlockArray(convertedContent);
             setEditorState(EditorState.createWithContent(contentState));
         }
-    }, [dataRecipe]);
+    }, [dataTour]);
 
 
     const handleChange = (data) => {
@@ -122,7 +122,7 @@ const EditRecipe = () => {
         navigate(-1);
     }
 
-    const handleEditRecipe = async (id) => {
+    const handleEditTour = async (id) => {
         let urlImage = '';
         if (imageRef.current) {
             const formData = new FormData();
@@ -145,10 +145,10 @@ const EditRecipe = () => {
                 return;
             }
         }
-        axios.put(`/recipe/${id}`, {
-            name: recipe_name.trim() == "" ? dataRecipe.name : recipe_name,
-            introduction: recipe_introduction.trim() == "" ? dataRecipe.introduction : recipe_introduction,
-            recipes: content,
+        axios.put(`/tour/${id}`, {
+            name: tour_name.trim() == "" ? dataTour.name : tour_name,
+            introduction: tour_introduction.trim() == "" ? dataTour.introduction : tour_introduction,
+            tours: content,
             tags: [
                 {
                     k: "image",
@@ -166,7 +166,7 @@ const EditRecipe = () => {
     }
 
     return (
-        <div className='create_recipe_container'>
+        <div className='create_tour_container'>
             <div class="wrapper">
                 <div class="inner">
                     <div class="image-holder">
@@ -193,16 +193,16 @@ const EditRecipe = () => {
                     <div style={{ width: "400px" }} className='create_form' action="">
                         <h3 style={{ marginBottom: "30px" }}>Thêm bài viết</h3>
                         <div class="form-holder active w-100">
-                            <textarea style={{ width: "100%", minHeight: "100px" }} type="text" class={`form-control `} defaultValue={dataRecipe?.name} onChange={e => { setRecipe_name(e.target.value); }} />
+                            <textarea style={{ width: "100%", minHeight: "100px" }} type="text" class={`form-control `} defaultValue={dataTour?.name} onChange={e => { setTour_name(e.target.value); }} />
                         </div>
                         <div class="form-holder active">
-                            <textarea style={{ width: "100%", minHeight: "200px" }} type="text" class="form-control" defaultValue={dataRecipe?.introduction} onChange={e => setRecipe_introduction(e.target.value)} />
+                            <textarea style={{ width: "100%", minHeight: "200px" }} type="text" class="form-control" defaultValue={dataTour?.introduction} onChange={e => setTour_introduction(e.target.value)} />
                         </div>
                     </div>
                 </div>
                 <div className='create_form-2'>
                     <div style={{ margin: "10px 0" }} class="form-holder active w-100">
-                        {dataRecipe && options &&
+                        {dataTour && options &&
                             <CreatableSelect onChange={(newValue) => setValue(newValue)}
                                 isClearable
                                 isLoading={isLoading}
@@ -210,17 +210,17 @@ const EditRecipe = () => {
                                 options={options}
                                 value={value}
                                 defaultValue={{
-                                    value: dataRecipe?.tags?.country,
-                                    label: dataRecipe?.tags?.country
+                                    value: dataTour?.tags?.country,
+                                    label: dataTour?.tags?.country
                                 }}
                                 placeholder="Chọn quốc gia"
                             />}
                     </div>
                 </div>
 
-                <div className='recipe_create'>
+                <div className='tour_create'>
                     <h3 style={{ marginTop: "20px" }}>Công thức</h3>
-                    <div className={`recipe_create_edit `}>
+                    <div className={`tour_create_edit `}>
                         <Editor
                             editorState={editorState}
                             onEditorStateChange={handleChange}
@@ -255,7 +255,7 @@ const EditRecipe = () => {
                         />
                     </div>
                     <div style={{ marginTop: "30px", marginBottom: "20px" }} className='d-flex justify-content-center' >
-                        <button onClick={() => handleEditRecipe(id)}>update</button>
+                        <button onClick={() => handleEditTour(id)}>update</button>
                     </div>
                 </div>
             </div>
@@ -265,4 +265,4 @@ const EditRecipe = () => {
         </div>
     )
 }
-export default EditRecipe
+export default EditTour

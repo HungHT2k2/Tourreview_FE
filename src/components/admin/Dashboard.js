@@ -12,7 +12,7 @@ import axios from 'axios';
 import { Bar } from "react-chartjs-2";
 import Swal from 'sweetalert2'
 import moment from 'moment'
-import { useNavigate } from 'react-router-dom'
+import {useNavigate} from  'react-router-dom'
 ChartJS.register(
     CategoryScale,
     LinearScale,
@@ -44,15 +44,15 @@ const Dashboard = () => {
     };
     useEffect(() => {
         const user = localStorage.getItem("user");
-        if (user) {
-            if (JSON.parse(user)?.role != "admin") {
+        if(user){
+            if(JSON.parse(user)?.role != "admin"){
                 navigate('/');
             }
         }
-        else {
+        else{
             navigate('/');
         }
-    }, []);
+    },[]);
 
     useEffect(() => {
         const token = localStorage.getItem("token");
@@ -77,11 +77,11 @@ const Dashboard = () => {
     }, [dashboard]);
 
     const deleteTour = async (id) => {
-        try {
-            await axios.post(`/admin/tour/${id}`, {
-            }, {
-                headers: {
-                    Authorization: `Bearer ${localStorage.getItem('token')}`
+        try{
+            await axios.post(`/admin/tour/${id}`,{
+            },{
+                headers:{
+                    Authorization:`Bearer ${localStorage.getItem('token')}`
                 }
             })
             Swal.fire({
@@ -92,7 +92,7 @@ const Dashboard = () => {
                 timer: 1500
             })
         }
-        catch (err) {
+        catch(err){
         }
     }
     const blockUser = (id) => {
@@ -197,7 +197,7 @@ const Dashboard = () => {
                             <i className="fa fa-chart-area fa-3x text-primary"></i>
                             <div className="ms-3">
                                 <p className="mb-2">Tổng reviewer</p>
-                                <h6 className="mb-0">{dashboard?.totalReviewer}</h6>
+                                <h6 className="mb-0">{dashboard?.totalChief}</h6>
                             </div>
                         </div>
                     </div>

@@ -197,7 +197,6 @@ const Home = () => {
             }}
           >
             {dataReviewer.map((item) => {
-              
               console.log(item)
               return (
                 <SwiperSlide>

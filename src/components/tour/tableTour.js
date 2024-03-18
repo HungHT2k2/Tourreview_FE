@@ -13,7 +13,7 @@ const TableTour = () => {
     const handleDelete = (id) => {
         const token = localStorage.getItem('token');
 
-        axios.delete(`http://localhost:5000/tour/${id}`,{
+        axios.delete(`http://localhost:9999/tour/${id}`,{
             headers: {
                 authorization: `Bearer ${token}`
             }

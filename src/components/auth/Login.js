@@ -16,7 +16,7 @@ const Login = () => {
     }
     try {
 
-      const user = await axios.post(`http://localhost:5000/user/login`, body);
+      const user = await axios.post(`http://localhost:9999/user/login`, body);
       const { statusCode, success, data, token } = user.data.data;
       if (success == true) {
         Swal.fire({
@@ -67,6 +67,9 @@ const Login = () => {
     }
 
   }
+  const loginwithgoogle = async ()=>{
+   await window.open("http://localhost:9999/auth/google/callback","_self");    
+}
   return (
     <>
       <div className="limiter">
@@ -108,20 +111,23 @@ const Login = () => {
               </div>
               <div className='w-100 d-flex justify-content-center'>
                 <div className='circle_border'>
-                  <form action="http://localhost:5000/login/facebook" method="GET">
+                  <form action="http://localhost:9999/login/facebook" method="GET">
                     <button type="submit" style={{ backgroundColor: 'rgba(0,0,0,0)', border: 'none', padding: '5px' }}>
                       <i className="fa-brands fa-facebook-f"></i>
                     </button>
                   </form>
                 </div>
                 <div className='circle_border'>
-                  <form action="http://localhost:5000/auth/google" method="GET">
+                  <form action="http://localhost:9999/auth/google" method="GET">
                     <button type="submit" style={{ backgroundColor: 'rgba(0,0,0,0)', border: 'none', padding: '5px' }}>
                       <i className="fa-brands fa-google"></i>
                     </button>
                   </form>
                 </div>
               </div>
+              <button className='login-with-google-btn' onClick={loginwithgoogle}>
+                    Sign In With Google
+                </button>
               <div className="text-center p-t-136">
                 <Link className="txt2 link_auth" to="/register">
                   Tạo tài khoản mới ?

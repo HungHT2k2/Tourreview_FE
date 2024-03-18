@@ -9,7 +9,7 @@ import axios from 'axios';
 const Home = () => {
   const [dataFavorite, setDataFavorite] = useState([]);
   const [dataNew, setDataNew] = useState([]);
-  const [dataChief, setDataChief] = useState([]);
+  const [dataReviewer, setDataReviewer] = useState([]);
 
   // const user = JSON.parse(localStorage.getItem("user"));
 
@@ -31,19 +31,19 @@ const Home = () => {
       setDataNew(res.data.data);
     }
   };
-  //Lấy dữ liệu lưu vào các biến setDataChief
-  const getTopChief = async () => {
-    const res = await axios.get("/user/top_chief", {
+  //Lấy dữ liệu lưu vào các biến setDataReviewer
+  const getTopReviewer = async () => {
+    const res = await axios.get("/user/top_reviewer", {
       params: { page: 1, limit: 9 },
     });
 
     if (res.data.success) {
-      setDataChief(res.data.data);
+      setDataReviewer(res.data.data);
     }
   };
 
   useEffect(() => {
-    getTopChief();
+    getTopReviewer();
     getTourFavorite()
     getTourNew()
   }, []);
@@ -196,14 +196,14 @@ const Home = () => {
               disableOnInteraction: false,
             }}
           >
-            {dataChief.map((item) => {
+            {dataReviewer.map((item) => {
               
               console.log(item)
               return (
                 <SwiperSlide>
                   <ProfileCard
                     item={item}
-                    reload={getTopChief}
+                    reload={getTopReviewer}
                     image={
                       item.tags.find((el) => el.k === "image")?.v ||
                       "https://res.cloudinary.com/dpsxlp0rr/image/upload/v1709474904/Ellipse_5_sepnmo.png"

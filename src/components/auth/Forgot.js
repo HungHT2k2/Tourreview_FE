@@ -10,7 +10,7 @@ const Forgot = () => {
     const body = { email: email };
     try {
       
-      const res = await axios.post(`http://localhost:5000/user/forgot-password`, body);
+      const res = await axios.post(`http://localhost:9999/user/forgot-password`, body);
       const { success, data } = res.data;
       if (success == true) {
         Swal.fire({

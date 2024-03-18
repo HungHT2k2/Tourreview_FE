@@ -4,7 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { io } from "socket.io-client";
 
-const socket = io("http://localhost:5000", {
+const socket = io("http://localhost:9999", {
   reconnection: true,
 });
 socket.on("connect", () => {

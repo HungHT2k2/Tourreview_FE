@@ -12,7 +12,7 @@ const Home = () => {
   const [dataChief, setDataChief] = useState([]);
 
   // const user = JSON.parse(localStorage.getItem("user"));
-
+  console.log(dataFavorite);
   //Lấy dữ liệu lưu vào các biến setDataFavorite
   const getTourFavorite = async () => {
     const res = await axios.get("/tour/tour_favorite", {
@@ -113,14 +113,14 @@ const Home = () => {
                       class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp"
                       data-wow-delay="0.1s"
                     >
-                      {/* <TourCard
+                      <TourCard
                         item={item}
                         image={
                           img?.v ||
                           "https://res.cloudinary.com/dpsxlp0rr/image/upload/v1709474464/shutterstock-706797802-4278-1588047075_sn4aos.jpg"
                         }
                         reload={getTourFavorite}
-                      /> */}
+                      />
                     </div>
                   );
                 })}

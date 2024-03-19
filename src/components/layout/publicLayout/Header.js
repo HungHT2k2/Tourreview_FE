@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import './style.scss'
 import Swal from 'sweetalert2';
+import axios from 'axios';
 const Header = () => {
   const [wasLogin, setWasLogin] = useState(true);
   const [user, setUser] = useState(null);
@@ -11,7 +12,30 @@ const Header = () => {
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
-
+  const getUser = async () => {
+    const response = await axios.get("http://localhost:9999/login/sucess", { withCredentials: true });
+    console.log(response);
+    if(response === null){
+      setWasLogin(window.localStorage.getItem('token') != null);
+      setUser(window.localStorage.getItem('user') ? JSON.parse(window.localStorage.getItem('user')) : null);
+    }else{
+      // console.log(response.data.user.email);
+      const xxx =await  axios.post("http://localhost:9999/user/find", {email : "tunbe2510@gmail.com"});
+      console.log(xxx);
+      let userTag = {}; 
+      xxx?.tags?.forEach(item => {
+        userTag = {
+          ...userTag,
+          [item?.k]: item?.v
+        }
+      })
+      localStorage.setItem("user", JSON.stringify({
+        ...xxx,
+        tags: userTag
+      }));
+      setUser(xxx)
+ }
+  }
   const handleLogout = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
@@ -25,10 +49,8 @@ const Header = () => {
     })
     navigate('/');
   }
-
   useEffect(() => {
-    setWasLogin(window.localStorage.getItem('token') != null);
-    setUser(window.localStorage.getItem('user') ? JSON.parse(window.localStorage.getItem('user')) : null);
+    getUser();
   }, []);
 
   return (

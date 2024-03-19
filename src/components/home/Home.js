@@ -19,6 +19,7 @@ const Home = () => {
       params: { page: 1, limit: 4 },
     });
     if (res.data.success) {
+      console.log(res.data);
       setDataFavorite(res.data.data);
     }
   };
@@ -112,14 +113,14 @@ const Home = () => {
                       class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp"
                       data-wow-delay="0.1s"
                     >
-                      <TourCard
+                      {/* <TourCard
                         item={item}
                         image={
                           img?.v ||
                           "https://res.cloudinary.com/dpsxlp0rr/image/upload/v1709474464/shutterstock-706797802-4278-1588047075_sn4aos.jpg"
                         }
                         reload={getTourFavorite}
-                      />
+                      /> */}
                     </div>
                   );
                 })}
@@ -156,14 +157,14 @@ const Home = () => {
                       class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp"
                       data-wow-delay="0.1s"
                     >
-                      <TourCard
+                      {/* <TourCard
                         item={item}
                         image={
                           img?.v ||
                           "https://res.cloudinary.com/dpsxlp0rr/image/upload/v1709474464/shutterstock-706797802-4278-1588047075_sn4aos.jpg"
                         }
                         reload={getTourNew}
-                      />
+                      /> */}
                     </div>
                   );
                 })}

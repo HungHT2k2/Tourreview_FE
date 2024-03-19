@@ -13,7 +13,8 @@ const Header = () => {
     setIsOpen(!isOpen);
   };
   const getUser = async () => {
-    const response = await axios.get("http://localhost:9999/login/sucess", { withCredentials: true });
+    try {
+      const response = await axios.get("http://localhost:9999/login/sucess", { withCredentials: true });
     console.log(response);
     if(response === null){
       setWasLogin(window.localStorage.getItem('token') != null);
@@ -21,7 +22,7 @@ const Header = () => {
     }else{
       // console.log(response.data.user.email);
       const xxx =await  axios.post("http://localhost:9999/user/find", {email : "tunbe2510@gmail.com"});
-      console.log(xxx);
+      console.log(xxx.data.user);
       let userTag = {}; 
       xxx?.tags?.forEach(item => {
         userTag = {
@@ -33,9 +34,13 @@ const Header = () => {
         ...xxx,
         tags: userTag
       }));
-      setUser(xxx)
+      setUser(xxx.data.user);
+    } }catch (error) {
+      setWasLogin(window.localStorage.getItem('token') != null);
+      setUser(window.localStorage.getItem('user') ? JSON.parse(window.localStorage.getItem('user')) : null);
+    }
  }
-  }
+  
   const handleLogout = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('user');

@@ -2,12 +2,15 @@ import axios from "axios";
 import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
+
 const TourCard = ({ item, image, tour, name, reload }) => {
   //Lấy thông tin người dùng từ localStorage (dựa trên đối tượng "user").
   const user = JSON.parse(localStorage.getItem("user"));
 
+
   const navigate = useNavigate();
   const tourId = tour?._id;
+
 
   //xử lý sự kiện khi người dùng nhấn vào nút "Favorite".
   const handleAddFavorite = async () => {
@@ -35,6 +38,7 @@ const TourCard = ({ item, image, tour, name, reload }) => {
       console.log(err);
     }
   }
+
 
   return (
     <div style={{ margin: "5px 0" }} className="product-item">
@@ -66,6 +70,7 @@ const TourCard = ({ item, image, tour, name, reload }) => {
           by {item?.users?.[0].name}
         </span>
 
+
         <span className="text-secondary me-1">
           {item?.favorites_size}
           <i style={{ color: "red" }} className="fa-solid fa-heart"></i>
@@ -86,8 +91,8 @@ const TourCard = ({ item, image, tour, name, reload }) => {
               className="text-body"
               onClick={handleAddFavorite}
             >
-              {/* kiểm tra xem user?._id (ID của người dùng hiện tại) 
-              có tồn tại trong mảng item?.favorites hay không. 
+              {/* kiểm tra xem user?._id (ID của người dùng hiện tại)
+              có tồn tại trong mảng item?.favorites hay không.
               Nếu tồn tại (người dùng đã yêu thích), nó hiển thị "Unfavorite" */}
                <i className="fa fa-heart text-primary me-2"></i>
               {item?.favorites?.find((item) => item === user?._id)
@@ -101,4 +106,8 @@ const TourCard = ({ item, image, tour, name, reload }) => {
   );
 };
 
+
 export default TourCard;
+
+
+

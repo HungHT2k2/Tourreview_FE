@@ -200,7 +200,7 @@ const EditTour = () => {
                         </div>
                     </div>
                 </div>
-                <div className='create_form-2'>
+                {/* <div className='create_form-2'>
                     <div style={{ margin: "10px 0" }} class="form-holder active w-100">
                         {dataTour && options &&
                             <CreatableSelect onChange={(newValue) => setValue(newValue)}
@@ -216,10 +216,10 @@ const EditTour = () => {
                                 placeholder="Chọn quốc gia"
                             />}
                     </div>
-                </div>
+                </div> */}
 
                 <div className='tour_create'>
-                    <h3 style={{ marginTop: "20px" }}>Công thức</h3>
+                    <h3 style={{ marginTop: "20px" }}>Giới thiệu về địa điểm du lịch</h3>
                     <div className={`tour_create_edit `}>
                         <Editor
                             editorState={editorState}

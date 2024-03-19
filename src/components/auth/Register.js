@@ -31,18 +31,17 @@ const Register = () => {
         }
 
         try {
-
-
             const body = {
                 name: username,
                 email: email,
                 password: password,
                 role: "user",
-
             }
-
             let res = await axios.post(`/user/register`, body);
+            console.log(res);
+
             const { statusCode, success, data, token } = res.data.data
+
             if (success == true) {
                 Swal.fire({
                     position: 'top-end',

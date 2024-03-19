@@ -15,8 +15,9 @@ const Login = () => {
       password: pass
     }
     try {
-
-      const user = await axios.post(`http://localhost:9999/user/login`, body);
+      console.log("sss");
+      const user = await axios.post(`/user/login`, body);
+      console.log(user);
       const { statusCode, success, data, token } = user.data.data;
       if (success == true) {
         Swal.fire({

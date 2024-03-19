@@ -15,32 +15,33 @@ const Header = () => {
   const getUser = async () => {
     try {
       const response = await axios.get("http://localhost:9999/login/sucess", { withCredentials: true });
-    console.log(response);
-    if(response === null){
-      setWasLogin(window.localStorage.getItem('token') != null);
-      setUser(window.localStorage.getItem('user') ? JSON.parse(window.localStorage.getItem('user')) : null);
-    }else{
-      // console.log(response.data.user.email);
-      const xxx =await  axios.post("http://localhost:9999/user/find", {email : "tunbe2510@gmail.com"});
-      console.log(xxx.data.user);
-      let userTag = {}; 
-      xxx?.tags?.forEach(item => {
-        userTag = {
-          ...userTag,
-          [item?.k]: item?.v
-        }
-      })
-      localStorage.setItem("user", JSON.stringify({
-        ...xxx,
-        tags: userTag
-      }));
-      setUser(xxx.data.user);
-    } }catch (error) {
+      console.log(response);
+      if (response === null) {
+        setWasLogin(window.localStorage.getItem('token') != null);
+        setUser(window.localStorage.getItem('user') ? JSON.parse(window.localStorage.getItem('user')) : null);
+      } else {
+        // console.log(response.data.user.email);
+        const xxx = await axios.post("http://localhost:9999/user/find", { email: "tunbe2510@gmail.com" });
+        console.log(xxx.data.user);
+        let userTag = {};
+        xxx?.tags?.forEach(item => {
+          userTag = {
+            ...userTag,
+            [item?.k]: item?.v
+          }
+        })
+        localStorage.setItem("user", JSON.stringify({
+          ...xxx,
+          tags: userTag
+        }));
+        setUser(xxx.data.user);
+      }
+    } catch (error) {
       setWasLogin(window.localStorage.getItem('token') != null);
       setUser(window.localStorage.getItem('user') ? JSON.parse(window.localStorage.getItem('user')) : null);
     }
- }
-  
+  }
+
   const handleLogout = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
@@ -77,7 +78,7 @@ const Header = () => {
         <nav className="navbar navbar-expand-lg navbar-light py-lg-0 px-lg-5 wow fadeIn" data-wow-delay="0.1s">
           <Link to="/" className="navbar-brand ms-4 ms-lg-0">
             {/* <h1 className="fw-bold text-primary m-0">C<span className="text-secondary">oo</span>ky</h1> */}
-                        <h1 className="fw-bold text-primary m-0">Tour<span className="text-secondary">Review</span></h1> 
+            <h1 className="fw-bold text-primary m-0">Tour<span className="text-secondary">De</span><span className="text-orange">Fun</span></h1>
 
           </Link>
           <button type="button" className="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -87,8 +88,8 @@ const Header = () => {
             <div className="navbar-nav ms-auto p-4 p-lg-0">
               {!wasLogin && <Link to='/login' className="nav-item nav-link active d-lg-none">Login</Link>}
               {wasLogin && <Link to={`/${user?._id}/profile`} className="nav-item nav-link active d-lg-none">Profile</Link>}
-              {wasLogin && <div onClick={handleLogout} style={{cursor:"pointer"}}  className='nav-item nav-link active d-lg-none'>
-              Đăng xuất
+              {wasLogin && <div onClick={handleLogout} style={{ cursor: "pointer" }} className='nav-item nav-link active d-lg-none'>
+                Đăng xuất
               </div>}
             </div>
             <div className="d-none d-lg-flex ms-2">

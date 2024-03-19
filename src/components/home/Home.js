@@ -56,25 +56,16 @@ const Home = () => {
             <div class="carousel-item active">
               <img class="w-100" src="https://res.cloudinary.com/dpsxlp0rr/image/upload/v1709474045/f6c95ff1eb6b404e1a9539b0f570a1bb_hxpb6z.jpg" alt="Image" />
               <div class="carousel-caption">
-                <div class="container">
-                  <div class="row justify-content-start">
-                    <div style={{ color: "black" }} class="col-lg-7">
-                      <h1 class="display-2 mb-5 animated slideInDown">Từ Đông Nam Á Đến Thế Giới, Trong Tầm Tay Bạn</h1>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
             <div class="carousel-item">
-              <img class="w-100" src="https://res.cloudinary.com/dpsxlp0rr/image/upload/v1709474045/f6c95ff1eb6b404e1a9539b0f570a1bb_hxpb6z.jpg" alt="Image" />
+              <img class="w-100" src="https://res.cloudinary.com/dkaktumui/image/upload/f_auto,q_auto/cgvj00vdbvzqj2pb5caa" alt="Image" />
               <div class="carousel-caption">
-                <div class="container">
-                  <div style={{ color: "black" }} class="row justify-content-start">
-                    <div class="col-lg-7">
-                      <h1 class="display-2 mb-5 animated slideInDown">Từ Đông Nam Á Đến Thế Giới, Trong Tầm Tay Bạn</h1>
-                    </div>
-                  </div>
-                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img class="w-100" src="https://res.cloudinary.com/dkaktumui/image/upload/f_auto,q_auto/gjbjd9gi8hmanu04v2pe" alt="Image" />
+              <div class="carousel-caption">
               </div>
             </div>
           </div>

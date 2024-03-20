@@ -9,7 +9,8 @@ import axios from 'axios';
 const Home = () => {
   const [dataFavorite, setDataFavorite] = useState([]);
   const [dataNew, setDataNew] = useState([]);
-  const [dataChief, setDataChief] = useState([]);
+  const [dataReviewer, setDataReviewer] = useState([]);
+
 
   // const user = JSON.parse(localStorage.getItem("user"));
   console.log(dataFavorite);
@@ -32,19 +33,21 @@ const Home = () => {
       setDataNew(res.data.data);
     }
   };
-  //Lấy dữ liệu lưu vào các biến setDataChief
-  const getTopChief = async () => {
-    const res = await axios.get("/user/top_chief", {
+  //Lấy dữ liệu lưu vào các biến setDataReviewer
+  const getTopReviewer = async () => {
+    const res = await axios.get("/user/top_reviewer", {
       params: { page: 1, limit: 9 },
     });
 
+
     if (res.data.success) {
-      setDataChief(res.data.data);
+      setDataReviewer(res.data.data);
     }
   };
 
+
   useEffect(() => {
-    getTopChief();
+    getTopReviewer();
     getTourFavorite()
     getTourNew()
   }, []);
@@ -56,28 +59,21 @@ const Home = () => {
             <div class="carousel-item active">
               <img class="w-100" src="https://res.cloudinary.com/dpsxlp0rr/image/upload/v1709474045/f6c95ff1eb6b404e1a9539b0f570a1bb_hxpb6z.jpg" alt="Image" />
               <div class="carousel-caption">
-                <div class="container">
-                  <div class="row justify-content-start">
-                    <div style={{ color: "black" }} class="col-lg-7">
-                      <h1 class="display-2 mb-5 animated slideInDown">Từ Đông Nam Á Đến Thế Giới, Trong Tầm Tay Bạn</h1>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
             <div class="carousel-item">
-              <img class="w-100" src="https://res.cloudinary.com/dpsxlp0rr/image/upload/v1709474045/f6c95ff1eb6b404e1a9539b0f570a1bb_hxpb6z.jpg" alt="Image" />
+              <img class="w-100" src="https://res.cloudinary.com/dkaktumui/image/upload/f_auto,q_auto/cgvj00vdbvzqj2pb5caa" alt="Image" />
               <div class="carousel-caption">
-                <div class="container">
-                  <div style={{ color: "black" }} class="row justify-content-start">
-                    <div class="col-lg-7">
-                      <h1 class="display-2 mb-5 animated slideInDown">Từ Đông Nam Á Đến Thế Giới, Trong Tầm Tay Bạn</h1>
-                    </div>
-                  </div>
-                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img class="w-100" src="https://res.cloudinary.com/dkaktumui/image/upload/f_auto,q_auto/gjbjd9gi8hmanu04v2pe" alt="Image" />
+              <div class="carousel-caption">
               </div>
             </div>
           </div>
+
+
 
 
           <button class="carousel-control-prev" type="button" data-bs-target="#header-carousel"
@@ -93,6 +89,7 @@ const Home = () => {
         </div>
       </div>
 
+
       <div class="container-xxl py-5">
         <div class="container">
           <div class="row g-0 gx-5 align-items-end">
@@ -100,6 +97,7 @@ const Home = () => {
               <h1 style={{ fontWeight: "700" }} class="display-6 mb-2">TOUR DU LỊCH NỔI BẬT</h1>
               <p>Những địa điểm du lịch nổi bật được nhiều người yêu thích nhất.</p>
             </div>
+
 
           </div>
           <div class="tab-content">
@@ -125,6 +123,7 @@ const Home = () => {
                   );
                 })}
 
+
                 <div class="col-12 text-center">
                   <Link class="btn btn-primary rounded-pill py-3 px-5" to="/tour/search?type=favorite">Hiển thị thêm</Link>
                 </div>
@@ -133,6 +132,12 @@ const Home = () => {
           </div>
         </div>
       </div>
+
+
+
+
+
+
 
 
 
@@ -157,17 +162,18 @@ const Home = () => {
                       class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp"
                       data-wow-delay="0.1s"
                     >
-                      {/* <TourCard
+                      <TourCard
                         item={item}
                         image={
                           img?.v ||
                           "https://res.cloudinary.com/dpsxlp0rr/image/upload/v1709474464/shutterstock-706797802-4278-1588047075_sn4aos.jpg"
                         }
                         reload={getTourNew}
-                      /> */}
+                      />
                     </div>
                   );
                 })}
+
 
                 <div class="col-12 text-center">
                   <Link class="btn btn-primary rounded-pill py-3 px-5" to="/tour/search?type=new">Hiển thị thêm</Link>
@@ -177,6 +183,7 @@ const Home = () => {
           </div>
         </div>
       </div>
+
 
       <div class="container-fluid bg-light bg-icon py-6 mb-5">
         <div class="container">
@@ -197,14 +204,14 @@ const Home = () => {
               disableOnInteraction: false,
             }}
           >
-            {dataChief.map((item) => {
-              
+            {dataReviewer.map((item) => {
+             
               console.log(item)
               return (
                 <SwiperSlide>
                   <ProfileCard
                     item={item}
-                    reload={getTopChief}
+                    reload={getTopReviewer}
                     image={
                       item.tags.find((el) => el.k === "image")?.v ||
                       "https://res.cloudinary.com/dpsxlp0rr/image/upload/v1709474904/Ellipse_5_sepnmo.png"
@@ -220,4 +227,6 @@ const Home = () => {
   )
 }
 
+
 export default Home
+

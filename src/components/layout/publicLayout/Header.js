@@ -77,7 +77,9 @@ const Header = () => {
         <nav className="navbar navbar-expand-lg navbar-light py-lg-0 px-lg-5 wow fadeIn" data-wow-delay="0.1s">
           <Link to="/" className="navbar-brand ms-4 ms-lg-0">
             {/* <h1 className="fw-bold text-primary m-0">C<span className="text-secondary">oo</span>ky</h1> */}
-                        <h1 className="fw-bold text-primary m-0">Tour<span className="text-secondary">Review</span></h1> 
+                        <h1 className="fw-bold text-primary m-0">Tour<span className="text-secondary">De</span><span className="text-orange">Fun</span></h1>
+
+
 
           </Link>
           <button type="button" className="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">

@@ -4,16 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { io } from "socket.io-client";
 
-const socket = io("http://localhost:9999", {
-  reconnection: true,
-});
-socket.on("connect", () => {
-  console.log("WebSocket connected");
-});
-
-socket.on("disconnect", () => {
-  console.log("WebSocket disconnected");
-});
+const socket = io.connect("http://localhost:1568");
 const Tour = () => {
   const { slug } = useParams();
   const [tour, setTour] = useState({});
@@ -77,19 +68,7 @@ const Tour = () => {
       });
   }, [slug]);
 
-  useEffect(() => {
-    socket.on("commentAdded", (newComment) => {
-      setComments((prevComments) => [...prevComments, newComment]);
-    });
-  }, []);
-
-  useEffect(() => {
-    socket.on("commentDeleted", (deletedCommentId) => {
-      setComments((prevComments) =>
-        prevComments.filter((comment) => comment._id !== deletedCommentId)
-      );
-    });
-  }, []);
+ 
 
   useEffect(() => {
     if(tour){
@@ -98,29 +77,25 @@ const Tour = () => {
   },[tour]);
 
   useEffect(() => {
-    socket.on("commentUpdated", (updatedComment) => {
-      setComments((prevComments) =>
-        prevComments.map((comment) =>
-          comment._id === updatedComment._id ? updatedComment : comment
-        )
-      );
-    });
-  }, []);
-
+    socket.emit("join_room", slug);
+    console.log("joined");
+  },[]);
+  
   useEffect(() => {
-    socket.on("commentReported",  (reportedComment) => {
-      setComments((prevComments) => {
-        return prevComments.map((comment) => {
-          if (comment._id === reportedComment._id) {
-            // update reported field
-            return { ...comment, reported: true };
-          }
-          return comment;
-        });
-      });
+    socket.on("done_comment",  (data) => {
+      console.log(data);
+      const id = user._id
+      const newComment = {
+        content : data.comment,
+        owner :id,
+        tourId: tour._id,
+        parentId: null,
+      }
+      console.log(newComment);
+      setComments((prevComments) => [...prevComments, newComment]);
+      console.log(comments);
     });
   }, []);
-
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -134,35 +109,35 @@ const Tour = () => {
   const handleCancelPost = () => {
     setComment("");
   };
-
+  console.log(comments);
   const handlePostComment = async () => {
     const token = localStorage.getItem("token");
-
-    socket.emit("comment", comment);
+    socket.emit("comment",{comment , slug, user});
 
     const newCommentObject = {
       content: comment,
       tourId: tour._id,
       parentId: null,
+      
     };
 
-    try {
-      const response = await axios.post(`/comment`, newCommentObject, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+    // try {
+    //   const response = await axios.post(`/comment`, newCommentObject, {
+    //     headers: {
+    //       Authorization: `Bearer ${token}`,
+    //     },
+    //   });
 
-      console.log("Comment posted successfully", response);
+    //   console.log("Comment posted successfully", response);
 
-      setComments([...comments, newCommentObject]);
+    //   setComments([...comments, newCommentObject]);
 
-      setComments([...comments, response.data.data]);
+    //   setComments([...comments, response.data.data]);
 
-      setComment("");
-    } catch (error) {
-      console.error("Error posting comment", error);
-    }
+    //   // setComment("");
+    // } catch (error) {
+    //   console.error("Error posting comment", error);
+    // }
   };
 
   const handleRatingChange = (value) => {
@@ -467,7 +442,7 @@ const Tour = () => {
                                         />
                                         <div>
                                           <h6 className="fw-bold text-primary mb-1">
-                                            {user?.name}
+                                            {comment.owner}
                                           </h6>
                                         </div>
                                       </div>
